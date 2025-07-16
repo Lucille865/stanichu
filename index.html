@@ -6,6 +6,40 @@
   <title>Studio Montage Vidéo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+  <script>
+  const offres = {
+    basique: {
+      titre: "Offre Basique",
+      description: "Montage simple jusqu'à 3 minutes, 1 vidéo source, 1 musique.",
+      prix: "50 €",
+      lien: "https://buy.stripe.com/test_123456_basique"
+    },
+    pro: {
+      titre: "Offre Pro",
+      description: "Montage avancé avec transitions, effets, musiques multiples. Jusqu’à 10 minutes.",
+      prix: "120 €",
+      lien: "https://buy.stripe.com/test_123456_pro"
+    },
+    premium: {
+      titre: "Offre Premium",
+      description: "Color grading, effets spéciaux, motion design. Jusqu'à 20 minutes de vidéo.",
+      prix: "250 €",
+      lien: "https://buy.stripe.com/test_123456_premium"
+    }
+  };
+
+  function afficherDetails(type) {
+    const details = offres[type];
+    document.getElementById('titre-offre').textContent = details.titre;
+    document.getElementById('description-offre').textContent = details.description;
+    document.getElementById('prix-offre').textContent = details.prix;
+    document.getElementById('lien-paiement').href = details.lien;
+
+    document.getElementById('details-offre').style.display = 'block';
+    document.getElementById('details-offre').scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
 <body>
   <header>
     <h1>🎬 Studio Montage Vidéo</h1>
@@ -22,26 +56,34 @@
       <p>Nous proposons des services de montage professionnels pour vos vidéos personnelles.</p>
     </section>
 
-    <section id="offres">
-      <h2>Nos Offres</h2>
-      <div class="offres">
-        <div class="offre">
-          <h3>Basique</h3>
-          <p>Montage simple – jusqu’à 1 minute</p>
-          <p><strong>5 €</strong></p>
-        </div>
-        <div class="offre">
-          <h3>Pro</h3>
-          <p>Montage pro avec transitions, musique, effets - jusqu’à 3 minutes</p>
-          <p><strong>10 €</strong></p>
-        </div>
-        <div class="offre">
-          <h3>Premium</h3>
-          <p>Montage avancé + color grading + motion design</p>
-          <p><strong>20 €</strong></p>
-        </div>
-      </div>
-    </section>
+<section id="offres">
+  <h2>Nos Offres</h2>
+  <div class="offres">
+    <div class="offre" onclick="afficherDetails('basique')">
+      <h3>Basique</h3>
+      <p>Montage simple – jusqu’à 1 minute</p>
+      <p><strong>5 €</strong></p>
+    </div>
+    <div class="offre" onclick="afficherDetails('pro')">
+      <h3>Pro</h3>
+      <p>Montage pro - Transitions, musique, effets - jusqu’à 3 minutes</p>
+      <p><strong>10 €</strong></p>
+    </div>
+    <div class="offre" onclick="afficherDetails('premium')">
+      <h3>Premium</h3>
+      <p>Montage avancé - Color grading + motion design</p>
+      <p><strong>20 €</strong></p>
+    </div>
+  </div>
+
+  <div id="details-offre" class="details-offre" style="display:none;">
+    <h3 id="titre-offre"></h3>
+    <p id="description-offre"></p>
+    <p><strong id="prix-offre"></strong></p>
+    <a id="lien-paiement" href="#" target="_blank" class="pay-btn">Payer cette offre</a>
+  </div>
+</section>
+
 
     <section id="galerie">
       <h2>Exemples de Montages</h2>

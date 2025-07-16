@@ -32,6 +32,15 @@ nav a {
   justify-content: center;
 }
 
+.details-offre {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-top: 30px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
 .offre {
   background: #fff;
   padding: 20px;

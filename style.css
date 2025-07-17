@@ -27,9 +27,9 @@ nav a {
 
 .offres {
   display: flex;
+  flex-direction: column; /* empile verticalement */
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center; /* centre chaque carte horizontalement */
 }
 
 .details-offre {
@@ -45,7 +45,8 @@ nav a {
   background: #fff;
   padding: 20px;
   border: 1px solid #ccc;
-  width: 250px;
+  width: 90%;
+  max-width: 400px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

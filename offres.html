@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nos Offres - Studio Montage Vidéo</title>
+  <title>Nos Offres – Studio Montage Vidéo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1 data-fr="🎬 Nos Offres" data-en="🎬 Our Offers">🎬 Nos Offres</h1>
     <nav>
-      <a href="index.html#galerie" data-fr="Exemples" data-en="Examples">Exemples</a>
-      <a href="index.html#contact" data-fr="Contact" data-en="Contact">Contact</a>
+      <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
       <select id="langue" onchange="changerLangue(this.value)">
         <option value="fr">FR</option>
         <option value="en">EN</option>
@@ -20,26 +19,43 @@
   </header>
 
   <main>
-    <section>
-      <h2 data-fr="Choisissez votre offre de montage vidéo" data-en="Choose your video editing package">Choisissez votre offre de montage vidéo</h2>
+    <section id="offres">
+      <h2 data-fr="Choisissez votre formule" data-en="Choose your package">Choisissez votre formule</h2>
       <div class="offres">
+        <!-- Offre Basique -->
         <div class="offre">
-          <h3 data-fr="Basique" data-en="Basic">Basique</h3>
-          <p data-fr="Montage simple – jusqu’à 1 minute" data-en="Simple edit – up to 1 minute">Montage simple – jusqu’à 1 minute</p>
+          <h3 data-fr="Offre Basique" data-en="Basic Plan">Offre Basique</h3>
+          <p data-fr="Montage simple jusqu'à 3 minutes, 1 vidéo source, 1 musique."
+             data-en="Simple edit up to 3 minutes, 1 source video, 1 music track.">
+            Montage simple jusqu'à 3 minutes, 1 vidéo source, 1 musique.
+          </p>
           <p><strong>5 €</strong></p>
-          <a href="https://buy.stripe.com/test_123456_basique" target="_blank" class="pay-btn" data-fr="Choisir cette offre" data-en="Choose this offer">Choisir cette offre</a>
+          <a class="pay-btn" href="https://buy.stripe.com/test_123456_basique" target="_blank"
+             data-fr="Payer cette offre" data-en="Purchase this plan">Payer cette offre</a>
         </div>
+
+        <!-- Offre Pro -->
         <div class="offre">
-          <h3 data-fr="Pro" data-en="Pro">Pro</h3>
-          <p data-fr="Montage pro - Transitions, musique, effets - jusqu’à 3 minutes" data-en="Pro editing - transitions, music, effects - up to 3 minutes">Montage pro - Transitions, musique, effets - jusqu’à 3 minutes</p>
+          <h3 data-fr="Offre Pro" data-en="Pro Plan">Offre Pro</h3>
+          <p data-fr="Montage avancé avec transitions, effets, musiques multiples. Jusqu’à 3 minutes."
+             data-en="Advanced editing with transitions, effects, multiple music tracks. Up to 3 minutes.">
+            Montage avancé avec transitions, effets, musiques multiples. Jusqu’à 3 minutes.
+          </p>
           <p><strong>10 €</strong></p>
-          <a href="https://buy.stripe.com/test_123456_pro" target="_blank" class="pay-btn" data-fr="Choisir cette offre" data-en="Choose this offer">Choisir cette offre</a>
+          <a class="pay-btn" href="https://buy.stripe.com/test_123456_pro" target="_blank"
+             data-fr="Payer cette offre" data-en="Purchase this plan">Payer cette offre</a>
         </div>
+
+        <!-- Offre Premium -->
         <div class="offre">
-          <h3 data-fr="Premium" data-en="Premium">Premium</h3>
-          <p data-fr="Montage avancé - Color grading + motion design - jusqu’à 5 minutes" data-en="Advanced editing - Color grading + motion design - up to 5 minutes">Montage avancé - Color grading + motion design - jusqu’à 5 minutes</p>
+          <h3 data-fr="Offre Premium" data-en="Premium Plan">Offre Premium</h3>
+          <p data-fr="Color grading, effets spéciaux, motion design. Jusqu'à 5 minutes de vidéo."
+             data-en="Color grading, special effects, motion design. Up to 5 minutes of video.">
+            Color grading, effets spéciaux, motion design. Jusqu'à 5 minutes de vidéo.
+          </p>
           <p><strong>20 €</strong></p>
-          <a href="https://buy.stripe.com/test_123456_premium" target="_blank" class="pay-btn" data-fr="Choisir cette offre" data-en="Choose this offer">Choisir cette offre</a>
+          <a class="pay-btn" href="https://buy.stripe.com/test_123456_premium" target="_blank"
+             data-fr="Payer cette offre" data-en="Purchase this plan">Payer cette offre</a>
         </div>
       </div>
     </section>

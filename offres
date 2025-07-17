@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nos Offres - Studio Montage Vidéo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 id="titre-page">🎬 Nos Offres</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <select id="langue" onchange="changerLangue(this.value)">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
+    </nav>
+  </header>
+
+  <main>
+    <section id="offres">
+      <div class="offres">
+        <div class="offre">
+          <h3 data-fr="Offre Basique" data-en="Basic Plan"></h3>
+          <p data-fr="Montage simple – jusqu’à 1 minute" data-en="Simple edit – up to 1 minute"></p>
+          <p><strong>5 €</strong></p>
+          <a href="https://buy.stripe.com/test_123456_basique" class="pay-btn" data-fr="Payer cette offre" data-en="Buy this offer"></a>
+        </div>
+        <div class="offre">
+          <h3 data-fr="Offre Pro" data-en="Pro Plan"></h3>
+          <p data-fr="Montage pro – transitions, musique, effets – jusqu’à 3 minutes" data-en="Pro edit – transitions, music, effects – up to 3 minutes"></p>
+          <p><strong>10 €</strong></p>
+          <a href="https://buy.stripe.com/test_123456_pro" class="pay-btn" data-fr="Payer cette offre" data-en="Buy this offer"></a>
+        </div>
+        <div class="offre">
+          <h3 data-fr="Offre Premium" data-en="Premium Plan"></h3>
+          <p data-fr="Color grading, motion design – jusqu’à 5 minutes" data-en="Color grading, motion design – up to 5 minutes"></p>
+          <p><strong>20 €</strong></p>
+          <a href="https://buy.stripe.com/test_123456_premium" class="pay-btn" data-fr="Payer cette offre" data-en="Buy this offer"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Studio Montage Vidéo</p>
+  </footer>
+
+  <script>
+    function changerLangue(langue) {
+      document.documentElement.lang = langue;
+      const elements = document.querySelectorAll('[data-fr]');
+      elements.forEach(el => {
+        el.textContent = el.dataset[langue];
+      });
+    }
+  </script>
+</body>
+</html>

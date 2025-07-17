@@ -10,13 +10,7 @@ header {
   background: #111;
   color: #fff;
   padding: 20px;
-  text-align: center;
-}
-
-nav a {
-  margin: 0 15px;
-  color: #fff;
-  text-decoration: none;
+  padding-left: 200px;
 }
 
 .intro, section {

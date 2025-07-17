@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-
-<nav>
-  <a href="offres.html">Nos Offres</a>
-  <a href="#galerie">Exemples</a>
-  <a href="#contact">Contact</a>
-  <select id="langue" onchange="changerLangue(this.value)">
-    <option value="fr">FR</option>
-    <option value="en">EN</option>
-  </select>
-</nav>
-
-
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -56,9 +44,13 @@
   <header>
     <h1>🎬 Studio Montage Vidéo</h1>
     <nav>
-      <a href="#offres">Nos Offres</a>
+      <a href="offres.html">Nos Offres</a>
       <a href="#galerie">Exemples</a>
       <a href="#contact">Contact</a>
+      <select id="langue" onchange="changerLangue(this.value)">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
     </nav>
   </header>
 
@@ -115,5 +107,15 @@
   <footer>
     <p>© 2025 Studio Montage Vidéo</p>
   </footer>
+
+  <script>
+    function changerLangue(langue) {
+      document.documentElement.lang = langue;
+      const elements = document.querySelectorAll('[data-fr]');
+      elements.forEach(el => {
+        el.textContent = el.dataset[langue];
+      });
+    }
+  </script>
 </body>
 </html>

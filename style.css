@@ -27,10 +27,13 @@ nav a {
 
 .offres {
   display: flex;
-  flex-direction: column; /* empile verticalement */
+  flex-direction: column; /* vertical */
   gap: 20px;
-  align-items: center; /* centre chaque carte horizontalement */
+  align-items: flex-start; /* alignement à gauche */
+  max-width: 400px; /* optionnel, limite la largeur du container */
+  margin: 0 auto; /* centre le bloc offres dans la page */
 }
+
 
 .details-offre {
   background: #fff;

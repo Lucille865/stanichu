@@ -19,6 +19,23 @@ header {
   margin: auto;
 }
 
+.offres-header {
+  background: #111;
+  color: #fff;
+  padding: 40px 30px;
+  margin-left: -190px; /* Pour recouvrir la barre latérale */
+  padding-left: 220px; /* Pour réaligner le contenu à droite de la barre */
+}
+
+.offres-header h2 {
+  margin-top: 0;
+}
+
+.offres-header p {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
 .offres {
   display: flex;
   flex-direction: column; /* vertical */

@@ -6,47 +6,13 @@
   <title>Studio Montage Vidéo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-  <script>
-  const offres = {
-    basique: {
-      titre: "Offre Basique",
-      description: "Montage simple jusqu'à 3 minutes, 1 vidéo source, 1 musique.",
-      prix: "5 €",
-      lien: "https://buy.stripe.com/test_123456_basique"
-    },
-    pro: {
-      titre: "Offre Pro",
-      description: "Montage avancé avec transitions, effets, musiques multiples. Jusqu’à 3 minutes.",
-      prix: "10 €",
-      lien: "https://buy.stripe.com/test_123456_pro"
-    },
-    premium: {
-      titre: "Offre Premium",
-      description: "Color grading, effets spéciaux, motion design. Jusqu'à 5 minutes de vidéo.",
-      prix: "20 €",
-      lien: "https://buy.stripe.com/test_123456_premium"
-    }
-  };
-
-  function afficherDetails(type) {
-    const details = offres[type];
-    document.getElementById('titre-offre').textContent = details.titre;
-    document.getElementById('description-offre').textContent = details.description;
-    document.getElementById('prix-offre').textContent = details.prix;
-    document.getElementById('lien-paiement').href = details.lien;
-
-    document.getElementById('details-offre').style.display = 'block';
-    document.getElementById('details-offre').scrollIntoView({ behavior: "smooth" });
-  }
-</script>
-
 <body>
   <header>
-    <h1>🎬 Studio Montage Vidéo</h1>
+    <h1 data-fr="🎬 Studio Montage Vidéo" data-en="🎬 Video Editing Studio">🎬 Studio Montage Vidéo</h1>
     <nav>
-      <a href="offres.html">Nos Offres</a>
-      <a href="#galerie">Exemples</a>
-      <a href="#contact">Contact</a>
+      <a href="offres.html" data-fr="Nos Offres" data-en="Our Offers">Nos Offres</a>
+      <a href="#galerie" data-fr="Exemples" data-en="Examples">Exemples</a>
+      <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
       <select id="langue" onchange="changerLangue(this.value)">
         <option value="fr">FR</option>
         <option value="en">EN</option>
@@ -56,41 +22,40 @@
 
   <main>
     <section class="intro">
-      <h2>Transformez vos vidéos en chefs-d’œuvre</h2>
-      <p>Nous proposons des services de montage professionnels pour vos vidéos personnelles.</p>
+      <h2 data-fr="Transformez vos vidéos en chefs-d’œuvre" data-en="Turn your videos into masterpieces">Transformez vos vidéos en chefs-d’œuvre</h2>
+      <p data-fr="Nous proposons des services de montage professionnels pour vos vidéos personnelles." data-en="We offer professional editing services for your personal videos.">Nous proposons des services de montage professionnels pour vos vidéos personnelles.</p>
     </section>
 
-<section id="offres">
-  <h2>Nos Offres</h2>
-  <div class="offres">
-    <div class="offre" onclick="afficherDetails('basique')">
-      <h3>Basique</h3>
-      <p>Montage simple – jusqu’à 1 minute</p>
-      <p><strong>5 €</strong></p>
-    </div>
-    <div class="offre" onclick="afficherDetails('pro')">
-      <h3>Pro</h3>
-      <p>Montage pro - Transitions, musique, effets - jusqu’à 3 minutes</p>
-      <p><strong>10 €</strong></p>
-    </div>
-    <div class="offre" onclick="afficherDetails('premium')">
-      <h3>Premium</h3>
-      <p>Montage avancé - Color grading + motion design</p>
-      <p><strong>20 €</strong></p>
-    </div>
-  </div>
+    <section id="offres">
+      <h2 data-fr="Nos Offres" data-en="Our Offers">Nos Offres</h2>
+      <div class="offres">
+        <div class="offre" onclick="afficherDetails('basique')">
+          <h3 data-fr="Basique" data-en="Basic">Basique</h3>
+          <p data-fr="Montage simple – jusqu’à 1 minute" data-en="Simple edit – up to 1 minute">Montage simple – jusqu’à 1 minute</p>
+          <p><strong>5 €</strong></p>
+        </div>
+        <div class="offre" onclick="afficherDetails('pro')">
+          <h3 data-fr="Pro" data-en="Pro">Pro</h3>
+          <p data-fr="Montage pro - Transitions, musique, effets - jusqu’à 3 minutes" data-en="Pro editing - transitions, music, effects - up to 3 minutes">Montage pro - Transitions, musique, effets - jusqu’à 3 minutes</p>
+          <p><strong>10 €</strong></p>
+        </div>
+        <div class="offre" onclick="afficherDetails('premium')">
+          <h3 data-fr="Premium" data-en="Premium">Premium</h3>
+          <p data-fr="Montage avancé - Color grading + motion design" data-en="Advanced editing - Color grading + motion design">Montage avancé - Color grading + motion design</p>
+          <p><strong>20 €</strong></p>
+        </div>
+      </div>
 
-  <div id="details-offre" class="details-offre" style="display:none;">
-    <h3 id="titre-offre"></h3>
-    <p id="description-offre"></p>
-    <p><strong id="prix-offre"></strong></p>
-    <a id="lien-paiement" href="#" target="_blank" class="pay-btn">Payer cette offre</a>
-  </div>
-</section>
-
+      <div id="details-offre" class="details-offre" style="display:none;">
+        <h3 id="titre-offre"></h3>
+        <p id="description-offre"></p>
+        <p><strong id="prix-offre"></strong></p>
+        <a id="lien-paiement" href="#" target="_blank" class="pay-btn" data-fr="Payer cette offre" data-en="Pay for this offer">Payer cette offre</a>
+      </div>
+    </section>
 
     <section id="galerie">
-      <h2>Exemples de Montages</h2>
+      <h2 data-fr="Exemples de Montages" data-en="Examples of Edits">Exemples de Montages</h2>
       <div class="videos">
         <iframe width="300" height="170" src="https://www.youtube.com/embed/uIbKh9avmgo" frameborder="0" allowfullscreen></iframe>
         <iframe width="300" height="170" src="https://www.youtube.com/embed/nyWvbA3ACe4" frameborder="0" allowfullscreen></iframe>
@@ -98,17 +63,48 @@
     </section>
 
     <section id="contact">
-      <h2>Contact & Paiement</h2>
+      <h2 data-fr="Contact & Paiement" data-en="Contact & Payment">Contact & Paiement</h2>
       <p>📧 <a href="mailto:stanichu@gmail.com">stanichu.pro@gmail.com</a></p>
-      <p>💳 <a href="https://buy.stripe.com/test_1234567890" target="_blank" class="pay-btn">Payer par Stripe</a></p>
+      <p>💳 <a href="https://buy.stripe.com/test_1234567890" target="_blank" class="pay-btn" data-fr="Payer par Stripe" data-en="Pay via Stripe">Payer par Stripe</a></p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Studio Montage Vidéo</p>
+    <p data-fr="© 2025 Studio Montage Vidéo" data-en="© 2025 Video Editing Studio">© 2025 Studio Montage Vidéo</p>
   </footer>
 
   <script>
+    const offres = {
+      basique: {
+        titre: "Offre Basique",
+        description: "Montage simple jusqu'à 3 minutes, 1 vidéo source, 1 musique.",
+        prix: "5 €",
+        lien: "https://buy.stripe.com/test_123456_basique"
+      },
+      pro: {
+        titre: "Offre Pro",
+        description: "Montage avancé avec transitions, effets, musiques multiples. Jusqu’à 3 minutes.",
+        prix: "10 €",
+        lien: "https://buy.stripe.com/test_123456_pro"
+      },
+      premium: {
+        titre: "Offre Premium",
+        description: "Color grading, effets spéciaux, motion design. Jusqu'à 5 minutes de vidéo.",
+        prix: "20 €",
+        lien: "https://buy.stripe.com/test_123456_premium"
+      }
+    };
+
+    function afficherDetails(type) {
+      const details = offres[type];
+      document.getElementById('titre-offre').textContent = details.titre;
+      document.getElementById('description-offre').textContent = details.description;
+      document.getElementById('prix-offre').textContent = details.prix;
+      document.getElementById('lien-paiement').href = details.lien;
+      document.getElementById('details-offre').style.display = 'block';
+      document.getElementById('details-offre').scrollIntoView({ behavior: "smooth" });
+    }
+
     function changerLangue(langue) {
       document.documentElement.lang = langue;
       const elements = document.querySelectorAll('[data-fr]');

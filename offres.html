@@ -23,11 +23,11 @@
 <main>
 <header>
   <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
-  <div class="onglets-categories">
-  <div class="categorie" onclick="changerCategorie('fortnite')">Fortnite</div>
+  <div class="menu-categories">
+  <div class="categorie active" onclick="changerCategorie('fortnite')">Fortnite</div>
   <div class="categorie" onclick="changerCategorie('valorant')">Valorant</div>
-  <div class="trait-selection" id="traitSelection"></div>
-  </div>
+  <div class="trait" id="trait"></div>
+</div>
 </header>
 <section class="intro">
   <p data-fr="Choisissez l'offre qui correspond à vos besoins." data-en="Choose the package that suits your needs.">
@@ -80,23 +80,25 @@
       });
     }
 
-    <script>
+<script>
   function changerCategorie(categorie) {
-    const onglets = document.querySelectorAll('.categorie');
-    const trait = document.getElementById('traitSelection');
+    const categories = document.querySelectorAll('.categorie');
+    const trait = document.getElementById('trait');
 
-    // Met à jour la couleur des textes
-    onglets.forEach(el => el.classList.remove('active'));
+    // Retire la classe active de toutes
+    categories.forEach(c => c.classList.remove('active'));
+
+    // Active la bonne catégorie
     const index = categorie === 'fortnite' ? 0 : 1;
-    onglets[index].classList.add('active');
+    categories[index].classList.add('active');
 
-    // Déplace le trait blanc
+    // Déplace le trait
     trait.style.left = index === 0 ? '0%' : '50%';
 
     console.log("Catégorie sélectionnée :", categorie);
   }
 
-  // Initialisation par défaut (Fortnite sélectionné)
+  // Initialise sur Fortnite
   document.addEventListener('DOMContentLoaded', () => {
     changerCategorie('fortnite');
   });

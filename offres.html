@@ -20,14 +20,14 @@
 
 
   <!-- ✅ CONTENU PRINCIPAL -->
-  <main>
-  <header>
+<main>
+<header>
   <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
-  <div class="filtres-jeux">
-    <button onclick="filtrerOffres('fortnite')" class="filtre-btn actif">Fortnite</button>
-    <button onclick="filtrerOffres('valorant')" class="filtre-btn">Valorant</button>
+  <div class="onglets-categories">
+  <div class="categorie" onclick="changerCategorie('fortnite')">Fortnite</div>
+  <div class="categorie" onclick="changerCategorie('valorant')">Valorant</div>
+  <div class="trait-selection" id="traitSelection"></div>
   </div>
-
 </header>
 <section class="intro">
   <p data-fr="Choisissez l'offre qui correspond à vos besoins." data-en="Choose the package that suits your needs.">
@@ -80,19 +80,27 @@
       });
     }
 
-    function filtrerOffres(jeu) {
-    // On change l'apparence des boutons
-    const boutons = document.querySelectorAll('.filtre-btn');
-    boutons.forEach(btn => btn.classList.remove('actif'));
+    <script>
+  function changerCategorie(categorie) {
+    const onglets = document.querySelectorAll('.categorie');
+    const trait = document.getElementById('traitSelection');
 
-    const boutonActif = Array.from(boutons).find(btn => btn.textContent.toLowerCase() === jeu);
-    if (boutonActif) boutonActif.classList.add('actif');
+    // Met à jour la couleur des textes
+    onglets.forEach(el => el.classList.remove('active'));
+    const index = categorie === 'fortnite' ? 0 : 1;
+    onglets[index].classList.add('active');
 
-    // Pour l’instant, on ne filtre pas les offres,
-    // mais plus tard on pourra masquer les offres qui ne concernent pas ce jeu
-    console.log("Catégorie sélectionnée :", jeu);
+    // Déplace le trait blanc
+    trait.style.left = index === 0 ? '0%' : '50%';
+
+    console.log("Catégorie sélectionnée :", categorie);
   }
-  </script>
+
+  // Initialisation par défaut (Fortnite sélectionné)
+  document.addEventListener('DOMContentLoaded', () => {
+    changerCategorie('fortnite');
+  });
+</script>
 
 </body>
 </html>

@@ -72,15 +72,14 @@
   </main>
 
   <script>
-    function changerLangue(langue) {
-      document.documentElement.lang = langue;
-      const elements = document.querySelectorAll('[data-fr]');
-      elements.forEach(el => {
-        el.textContent = el.dataset[langue];
-      });
-    }
+  function changerLangue(langue) {
+    document.documentElement.lang = langue;
+    const elements = document.querySelectorAll('[data-fr]');
+    elements.forEach(el => {
+      el.textContent = el.dataset[langue];
+    });
+  }
 
-<script>
   function changerCategorie(categorie) {
     const categories = document.querySelectorAll('.categorie');
     const trait = document.getElementById('trait');

@@ -120,6 +120,32 @@ footer {
   border-radius: 4px;
 }
 
+.filtres-jeux {
+  display: flex;
+  gap: 15px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.filtre-btn {
+  background-color: #eee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.filtre-btn:hover {
+  background-color: #ddd;
+}
+
+.filtre-btn.actif {
+  background-color: #6772e5;
+  color: white;
+}
+
 body {
   margin-left: 190px; /* pour ne pas que le contenu soit caché derrière le menu */
 }

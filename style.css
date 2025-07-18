@@ -123,16 +123,17 @@ footer {
 .menu-categories {
   position: relative;
   display: flex;
-  width: 100%;
+  justify-content: center;
   background-color: #111;
   height: 50px;
-  margin-top: 20px;
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
+  margin-top: 20px;
 }
 
 .menu-categories .categorie {
   flex: 1;
+  max-width: 200px;
   text-align: center;
   color: #aaa;
   font-size: 18px;
@@ -140,7 +141,6 @@ footer {
   line-height: 50px;
   cursor: pointer;
   transition: color 0.3s;
-  z-index: 1;
 }
 
 .menu-categories .categorie.active {
@@ -156,7 +156,6 @@ footer {
   background-color: white;
   transition: left 0.3s ease;
 }
-
 
 body {
   margin-left: 190px; /* pour ne pas que le contenu soit caché derrière le menu */

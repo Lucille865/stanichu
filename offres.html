@@ -80,19 +80,17 @@
     });
   }
 
-  function changerCategorie(index) {
-    const categories = document.querySelectorAll('.categorie');
-    const trait = document.getElementById('trait');
-
-    categories.forEach(c => c.classList.remove('active'));
-    categories[index].classList.add('active');
-
-    trait.style.left = index === 0 ? '0%' : '50%';
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    changerCategorie(0);
-  });
+function changerCategorie(index) {
+  const categories = document.querySelectorAll('.categorie');
+  const trait = document.getElementById('trait');
+  
+  categories.forEach(c => c.classList.remove('active'));
+  categories[index].classList.add('active');
+  
+  // Calcul de la position en pourcentage (0% pour Fortnite, 50% pour Valorant)
+  const position = index * 50 + '%';
+  trait.style.left = position;
+}
 </script>
 
 </body>

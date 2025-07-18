@@ -35,40 +35,53 @@
   </p>
 </section>
 
-    <section class="offres">
-      <div class="offre">
-        <h2 data-fr="Basique" data-en="Basic">Basique</h2>
-        <p data-fr="Montage simple jusqu'à 1 minute, 1 vidéo source, 1 musique." 
-           data-en="Simple edit up to 1 minute, 1 source video, 1 music track.">
-           Montage simple jusqu'à 1 minute, 1 vidéo source, 1 musique.
-        </p>
-        <p><strong>5 €</strong></p>
-        <a href="https://buy.stripe.com/test_123456_basique" class="pay-btn" target="_blank" 
-           data-fr="Payer cette offre" data-en="Buy this package">Payer cette offre</a>
-      </div>
+<section class="offres">
+  <!-- Offres Fortnite (par défaut) -->
+  <div class="offre fortnite">
+    <h2 data-fr="Basique" data-en="Basic">Basique</h2>
+    <p data-fr="Montage simple jusqu'à 1 minute, 1 vidéo source, 1 musique." 
+       data-en="Simple edit up to 1 minute, 1 source video, 1 music track.">
+       Montage simple jusqu'à 1 minute, 1 vidéo source, 1 musique.
+    </p>
+    <p><strong>5 €</strong></p>
+    <a href="https://buy.stripe.com/test_fortnite_basique" class="pay-btn" target="_blank" 
+       data-fr="Payer cette offre" data-en="Buy this package">Payer cette offre</a>
+  </div>
 
-      <div class="offre">
-        <h2 data-fr="Pro" data-en="Pro">Pro</h2>
-        <p data-fr="Montage avec transitions, musiques multiples, effets — jusqu’à 3 minutes." 
-           data-en="Editing with transitions, multiple music tracks, effects — up to 3 minutes.">
-           Montage avec transitions, musiques multiples, effets — jusqu’à 3 minutes.
-        </p>
-        <p><strong>10 €</strong></p>
-        <a href="https://buy.stripe.com/test_123456_pro" class="pay-btn" target="_blank"
-           data-fr="Payer cette offre" data-en="Buy this package">Payer cette offre</a>
-      </div>
+  <div class="offre fortnite">
+    <h2 data-fr="Pro" data-en="Pro">Pro</h2>
+    <p data-fr="Montage avec transitions, musiques multiples, effets — jusqu'à 3 minutes." 
+       data-en="Editing with transitions, multiple music tracks, effects — up to 3 minutes.">
+       Montage avec transitions, musiques multiples, effets — jusqu'à 3 minutes.
+    </p>
+    <p><strong>10 €</strong></p>
+    <a href="https://buy.stripe.com/test_fortnite_pro" class="pay-btn" target="_blank"
+       data-fr="Payer cette offre" data-en="Buy this package">Payer cette offre</a>
+  </div>
 
-      <div class="offre">
-        <h2 data-fr="Premium" data-en="Premium">Premium</h2>
-        <p data-fr="Color grading, effets spéciaux, motion design — jusqu'à 5 minutes." 
-           data-en="Color grading, VFX, motion design — up to 5 minutes.">
-           Color grading, effets spéciaux, motion design — jusqu'à 5 minutes.
-        </p>
-        <p><strong>20 €</strong></p>
-        <a href="https://buy.stripe.com/test_123456_premium" class="pay-btn" target="_blank"
-           data-fr="Payer cette offre" data-en="Buy this package">Payer cette offre</a>
-      </div>
-    </section>
+  <!-- Offres Valorant (cachées par défaut) -->
+  <div class="offre valorant" style="display: none;">
+    <h2 data-fr="Débutant" data-en="Starter">Débutant</h2>
+    <p data-fr="Montage de clips avec synchronisation des kills, 1 musique." 
+       data-en="Clips edit with kill sync, 1 music track.">
+       Montage de clips avec synchronisation des kills, 1 musique.
+    </p>
+    <p><strong>7 €</strong></p>
+    <a href="https://buy.stripe.com/test_valorant_starter" class="pay-btn" target="_blank" 
+       data-fr="Payer cette offre" data-en="Buy this package">Payer cette offre</a>
+  </div>
+
+  <div class="offre valorant" style="display: none;">
+    <h2 data-fr="Compétitif" data-en="Competitive">Compétitif</h2>
+    <p data-fr="Effets spéciaux sur les kills, HUD personnalisé, jusqu'à 5 minutes." 
+       data-en="Kill effects, custom HUD, up to 5 minutes.">
+       Effets spéciaux sur les kills, HUD personnalisé, jusqu'à 5 minutes.
+    </p>
+    <p><strong>15 €</strong></p>
+    <a href="https://buy.stripe.com/test_valorant_competitive" class="pay-btn" target="_blank"
+       data-fr="Payer cette offre" data-en="Buy this package">Payer cette offre</a>
+  </div>
+</section>
   </main>
 
   <script>
@@ -87,9 +100,21 @@ function changerCategorie(index) {
   categories.forEach(c => c.classList.remove('active'));
   categories[index].classList.add('active');
   
-  // Calcul de la position en pourcentage (0% pour Fortnite, 50% pour Valorant)
+  // Calcul de la position
   const position = index * 50 + '%';
   trait.style.left = position;
+  
+  // Gestion de l'affichage des offres
+  const offresFortnite = document.querySelectorAll('.offre.fortnite');
+  const offresValorant = document.querySelectorAll('.offre.valorant');
+  
+  if (index === 0) { // Fortnite sélectionné
+    offresFortnite.forEach(offre => offre.style.display = 'block');
+    offresValorant.forEach(offre => offre.style.display = 'none');
+  } else { // Valorant sélectionné
+    offresFortnite.forEach(offre => offre.style.display = 'none');
+    offresValorant.forEach(offre => offre.style.display = 'block');
+  }
 }
 </script>
 

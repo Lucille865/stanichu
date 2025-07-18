@@ -129,11 +129,12 @@ footer {
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
   margin-top: 20px;
+  width: 100%; /* Ajouté pour prendre toute la largeur */
+  left: 0; /* Assure que c'est aligné à gauche */
 }
 
 .menu-categories .categorie {
-  flex: 1;
-  max-width: 200px;
+  flex: 1; /* Chaque catégorie prend une part égale de l'espace */
   text-align: center;
   color: #aaa;
   font-size: 18px;
@@ -141,6 +142,7 @@ footer {
   line-height: 50px;
   cursor: pointer;
   transition: color 0.3s;
+  position: relative;
 }
 
 .menu-categories .categorie.active {
@@ -151,12 +153,11 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 50%;
+  width: 50%; /* Prend la moitié de la largeur totale */
   height: 3px;
   background-color: white;
   transition: left 0.3s ease;
 }
-
 body {
   margin-left: 190px; /* pour ne pas que le contenu soit caché derrière le menu */
 }

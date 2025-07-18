@@ -23,6 +23,11 @@
   <main>
   <header>
   <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
+  <div class="filtres-jeux">
+    <button onclick="filtrerOffres('fortnite')" class="filtre-btn actif">Fortnite</button>
+    <button onclick="filtrerOffres('valorant')" class="filtre-btn">Valorant</button>
+  </div>
+
 </header>
 <section class="intro">
   <p data-fr="Choisissez l'offre qui correspond à vos besoins." data-en="Choose the package that suits your needs.">
@@ -74,6 +79,19 @@
         el.textContent = el.dataset[langue];
       });
     }
+
+    function filtrerOffres(jeu) {
+    // On change l'apparence des boutons
+    const boutons = document.querySelectorAll('.filtre-btn');
+    boutons.forEach(btn => btn.classList.remove('actif'));
+
+    const boutonActif = Array.from(boutons).find(btn => btn.textContent.toLowerCase() === jeu);
+    if (boutonActif) boutonActif.classList.add('actif');
+
+    // Pour l’instant, on ne filtre pas les offres,
+    // mais plus tard on pourra masquer les offres qui ne concernent pas ce jeu
+    console.log("Catégorie sélectionnée :", jeu);
+  }
   </script>
 
 </body>

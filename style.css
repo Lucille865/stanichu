@@ -120,41 +120,43 @@ footer {
   border-radius: 4px;
 }
 
-.onglets-categories {
-  display: flex;
+.menu-categories {
   position: relative;
-  justify-content: space-around;
-  align-items: center;
-  height: 50px;
+  display: flex;
+  width: 100%;
   background-color: #111;
+  height: 50px;
   margin-top: 20px;
+  border-top: 1px solid #333;
   border-bottom: 1px solid #333;
 }
 
-.categorie {
+.menu-categories .categorie {
   flex: 1;
   text-align: center;
   color: #aaa;
   font-size: 18px;
   font-weight: bold;
+  line-height: 50px;
   cursor: pointer;
-  padding: 10px 0;
   transition: color 0.3s;
+  z-index: 1;
 }
 
-.categorie.active {
-  color: #fff;
+.menu-categories .categorie.active {
+  color: white;
 }
 
-.trait-selection {
+.menu-categories .trait {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 50%;
   height: 3px;
   background-color: white;
-  transition: left 0.3s;
+  transition: left 0.3s ease;
 }
+
 
 body {
   margin-left: 190px; /* pour ne pas que le contenu soit caché derrière le menu */

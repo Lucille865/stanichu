@@ -23,9 +23,9 @@ header {
   background: #111;
   color: #fff;
   padding: 40px 30px;
-  margin-left: -190px; /* Pour recouvrir la barre latérale */
-  padding-left: 220px; /* Pour réaligner le contenu à droite de la barre */
+  padding-left: 200px;
 }
+
 
 .offres-header h2 {
   margin-top: 0;

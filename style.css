@@ -1,16 +1,17 @@
+/* ===== PARTIE À GARDER (styles de base) ===== */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #f7f7f7;
   color: #333;
+  margin-left: 190px; /* pour le menu latéral */
 }
 
 header {
   background: #111;
   color: #fff;
   padding: 20px;
-  /*padding-left: 200px;*/
 }
 
 .intro, section {
@@ -22,66 +23,6 @@ header {
 .intro p {
   margin-top: 10px;
   font-size: 1.1em;
-}
-
-.details-offre {
-  background: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  margin-top: 30px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.offres {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center; /* Centrer les offres */
-  width: 100%;
-}
-
-.offre {
-  background: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.offre:hover {
-  transform: translateY(-5px);
-}
-
-.videos {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.video-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.video-title {
-  margin-top: 5px;
-  font-size: 0.9em;
-  color: #555;
-}
-
-.pay-btn {
-  display: inline-block;
-  background: #6772e5;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
 }
 
 footer {
@@ -122,21 +63,33 @@ footer {
   border-radius: 4px;
 }
 
+.pay-btn {
+  display: inline-block;
+  background: #6772e5;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.pay-btn:hover {
+  background: #5469d4;
+}
+
+/* ===== PARTIE À REMPLACER (menu catégories) ===== */
+/* Supprimez l'ancien style .menu-categories et remplacez par : */
 .menu-categories {
   position: relative;
   display: flex;
-  justify-content: center;
   background-color: #111;
   height: 50px;
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
-  margin-top: 20px;
-  width: 100%; /* Ajouté pour prendre toute la largeur */
-  left: 0; /* Assure que c'est aligné à gauche */
+  width: 100%;
 }
 
 .menu-categories .categorie {
-  flex: 1; /* Chaque catégorie prend une part égale de l'espace */
+  flex: 1;
   text-align: center;
   color: #aaa;
   font-size: 18px;
@@ -144,7 +97,6 @@ footer {
   line-height: 50px;
   cursor: pointer;
   transition: color 0.3s;
-  position: relative;
 }
 
 .menu-categories .categorie.active {
@@ -155,12 +107,109 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 50%; /* Prend la moitié de la largeur totale */
+  width: 50%;
   height: 3px;
   background-color: white;
   transition: left 0.3s ease;
 }
-body {
-  margin-left: 190px; /* pour ne pas que le contenu soit caché derrière le menu */
+
+/* ===== NOUVELLE PARTIE À AJOUTER (styles des offres) ===== */
+.offres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  padding: 20px 0;
 }
 
+.offre-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+}
+
+.offre {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease;
+}
+
+.offre:hover {
+  transform: translateY(-5px);
+}
+
+.offre h2 {
+  background: #111;
+  color: white;
+  padding: 15px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.offre-content {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.description, .video-example {
+  flex: 1;
+  min-width: 0; /* Empêche le débordement */
+}
+
+.description h3, .video-example h3 {
+  margin-top: 0;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.description ul {
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.description li {
+  margin-bottom: 8px;
+}
+
+.price {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  background: #f7f7f7;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    margin-left: 0;
+    padding-left: 60px; /* Réduit l'espace pour mobile */
+  }
+  
+  .sidebar {
+    width: 60px;
+    overflow: hidden;
+  }
+  
+  .offre-content {
+    flex-direction: column;
+  }
+  
+  .video-example iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+}

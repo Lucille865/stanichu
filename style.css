@@ -19,22 +19,11 @@ header {
   margin: auto;
 }
 
-.offres-header {
-  background: #111;
-  color: #fff;
-  padding: 40px 30px;
-  padding-left: 200px;
-}
-
-
-.offres-header h2 {
-  margin-top: 0;
-}
-
-.offres-header p {
+.intro p {
   margin-top: 10px;
   font-size: 1.1em;
 }
+
 
 .offres {
   display: flex;

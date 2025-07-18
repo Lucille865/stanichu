@@ -24,10 +24,10 @@
 <header>
   <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
   <div class="menu-categories">
-  <div class="categorie active" onclick="changerCategorie('fortnite')">Fortnite</div>
-  <div class="categorie" onclick="changerCategorie('valorant')">Valorant</div>
+  <div class="categorie active" onclick="changerCategorie(0)">Fortnite</div>
+  <div class="categorie" onclick="changerCategorie(1)">Valorant</div>
   <div class="trait" id="trait"></div>
-</div>
+  </div>
 </header>
 <section class="intro">
   <p data-fr="Choisissez l'offre qui correspond à vos besoins." data-en="Choose the package that suits your needs.">
@@ -80,26 +80,18 @@
     });
   }
 
-  function changerCategorie(categorie) {
+  function changerCategorie(index) {
     const categories = document.querySelectorAll('.categorie');
     const trait = document.getElementById('trait');
 
-    // Retire la classe active de toutes
     categories.forEach(c => c.classList.remove('active'));
-
-    // Active la bonne catégorie
-    const index = categorie === 'fortnite' ? 0 : 1;
     categories[index].classList.add('active');
 
-    // Déplace le trait
     trait.style.left = index === 0 ? '0%' : '50%';
-
-    console.log("Catégorie sélectionnée :", categorie);
   }
 
-  // Initialise sur Fortnite
   document.addEventListener('DOMContentLoaded', () => {
-    changerCategorie('fortnite');
+    changerCategorie(0);
   });
 </script>
 

@@ -24,17 +24,6 @@ header {
   font-size: 1.1em;
 }
 
-
-.offres {
-  display: flex;
-  flex-direction: column; /* vertical */
-  gap: 20px;
-  align-items: flex-start; /* alignement à gauche */
-  max-width: 400px; /* optionnel, limite la largeur du container */
-  /*margin: 0 auto;  centre le bloc offres dans la page */
-}
-
-
 .details-offre {
   background: #fff;
   padding: 20px;
@@ -42,6 +31,14 @@ header {
   margin-top: 30px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.offres {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center; /* Centrer les offres */
+  width: 100%;
 }
 
 .offre {
@@ -52,6 +49,11 @@ header {
   max-width: 400px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.offre:hover {
+  transform: translateY(-5px);
 }
 
 .videos {

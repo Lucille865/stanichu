@@ -120,30 +120,40 @@ footer {
   border-radius: 4px;
 }
 
-.filtres-jeux {
+.onglets-categories {
   display: flex;
-  gap: 15px;
-  margin: 20px auto;
-  justify-content: center;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  background-color: #111;
+  margin-top: 20px;
+  border-bottom: 1px solid #333;
 }
 
-.filtre-btn {
-  background-color: #eee;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
+.categorie {
+  flex: 1;
+  text-align: center;
+  color: #aaa;
+  font-size: 18px;
   font-weight: bold;
-  transition: 0.3s;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: color 0.3s;
 }
 
-.filtre-btn:hover {
-  background-color: #ddd;
+.categorie.active {
+  color: #fff;
 }
 
-.filtre-btn.actif {
-  background-color: #6772e5;
-  color: white;
+.trait-selection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: white;
+  transition: left 0.3s;
 }
 
 body {

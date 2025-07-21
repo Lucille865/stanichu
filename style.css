@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* Reset de base */
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +6,10 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f0f0f;
+  font-family: Arial, sans-serif;
+  background: #1a1a1a;
   color: white;
-  line-height: 1.6;
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 /* Menu */
@@ -18,204 +17,89 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: black;
-  padding: 15px 20px;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  background: #111;
+  padding: 15px 0;
 }
 
 .navbar {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: center; /* Changé de 'space-between' à 'center' */
+  justify-content: space-between;
   align-items: center;
-  gap: 40px; /* Ajout d'un espacement constant */
-}
-
-.logo {
-  position: absolute; /* Sort le logo du flux */
-  left: 20px;
+  padding: 0 20px;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
-  align-items: center;
+  gap: 20px;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  padding: 5px 10px;
-  transition: color 0.3s;
 }
 
 .nav-links a.active {
   color: #6772e5;
-  border-bottom: 2px solid #6772e5;
 }
 
-.nav-links a:hover {
-  color: #6772e5;
-}
-
-select#langue {
-  padding: 5px 10px;
-  border-radius: 4px;
-  background: #333;
-  color: white;
-  border: none;
-}
-
-/* Conteneur des deux sélecteurs */
-.selection-container {
-  display: flex;
-  justify-content: space-between;
+/* Sélecteurs */
+.switchers {
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 30px auto;
+  display: flex;
+  gap: 20px;
   padding: 0 20px;
 }
-/* Game Switcher */
-.game-switcher, 
-.type-switcher {
-  position: relative;
+
+.switcher {
   display: flex;
   background: #2a2a2a;
   border-radius: 8px;
-  padding: 5px;
-  width: 48%; /* Pour qu'ils prennent environ la moitié de l'espace */
+  overflow: hidden;
 }
 
-.selection-btn {
-  flex: 1;
-  padding: 10px 15px;
+.btn-switcher {
+  padding: 10px 20px;
   background: none;
   border: none;
   color: #aaa;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-}
-
-.selection-btn.active {
-  color: white;
-}
-
-.active-indicator {
-  position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: 5px;
-  width: calc(50% - 5px);
-  background: #6772e5;
-  border-radius: 5px;
-  z-index: 1;
-  transition: all 0.3s ease;
-}
-
-/* Ajustement pour le deuxième sélecteur */
-.type-switcher .active-indicator {
-  left: auto;
-  right: 5px;
-}
-
-.game-btn {
-  flex: 1;
-  padding: 12px;
-  background: none;
-  border: none;
-  color: #aaa;
-  font-weight: bold;
   cursor: pointer;
 }
 
-.game-btn.active {
-  color: white;
-}
-
-.active-indicator {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 3px;
+.btn-switcher.active {
   background: #6772e5;
-  transition: left 0.3s ease;
+  color: white;
 }
 
 /* Offres */
-.offres-container {
+.offres {
   max-width: 1200px;
-  margin: 30px auto;
+  margin: 0 auto;
   padding: 0 20px;
-  display: flex;          /* Changé de grid à flex */
-  flex-direction: column; /* Empilement vertical */
-  gap: 30px;
-  width: 100%;
 }
 
 .offre {
-  background: #1e1e1e;
-  border-radius: 10px;
-  padding: 25px;
-  width: 100%;           /* Prend toute la largeur */
-  box-sizing: border-box; /* Inclut le padding */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-
-.pay-btn {
-  display: block;
+.btn-buy {
   background: #6772e5;
   color: white;
-  text-align: center;
-  padding: 10px;
+  border: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.pay-btn:hover {
-  background: #5469d4;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #111;
-  margin-top: 50px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  body {
-    padding-top: 70px;
-  }
-  
-  .navbar {
+  .switchers {
     flex-direction: column;
-    gap: 15px;
-  }
-  
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .offres-container {
-    grid-template-columns: 1fr;
-  }
-
-  .selection-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .game-switcher, 
-  .type-switcher {
-    width: 100%;
   }
 }

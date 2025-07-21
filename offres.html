@@ -111,24 +111,42 @@
   </footer>
 
   <script>
-    // ✅ Gestion des onglets Fortnite/Valorant
-    document.querySelectorAll('.game-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Mettre à jour l'UI
-        document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        // Déplacer l'indicateur
-        const indicator = document.querySelector('.active-indicator');
-        indicator.style.left = this.dataset.game === 'fortnite' ? '0' : '50%';
-        
-        // Afficher les bonnes offres
-        document.querySelector('.fortnite').style.display = 
-          this.dataset.game === 'fortnite' ? 'grid' : 'none';
-        document.querySelector('.valorant').style.display = 
-          this.dataset.game === 'valorant' ? 'grid' : 'none';
+// ✅ 1. GESTION DES OFFRES (Fortnite/Valorant)
+function setupOffres() {
+  // Afficher Fortnite par défaut
+  document.querySelector('.fortnite').style.display = 'grid';
+  document.querySelector('.valorant').style.display = 'none';
+  
+  // Écouter les clics
+  document.querySelectorAll('.game-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Boutons actifs
+      document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Animation indicateur
+      document.querySelector('.active-indicator').style.left = 
+        this.dataset.game === 'fortnite' ? '0' : '50%';
+      
+      // Afficher la bonne section
+      document.querySelectorAll('.offres-container').forEach(sec => {
+        sec.style.display = 'none';
       });
+      document.querySelector(`.${this.dataset.game}`).style.display = 'grid';
     });
+  });
+}
+
+// ✅ 2. INITIALISATION AU CHARGEMENT
+document.addEventListener('DOMContentLoaded', function() {
+  setupOffres();
+  changerLangue('fr'); // Français par défaut
+  
+  // Écouter le changement de langue
+  document.getElementById('langue').addEventListener('change', function() {
+    changerLangue(this.value);
+  });
+});
 
     // ✅ Traduction
     document.addEventListener('DOMContentLoaded', function() {

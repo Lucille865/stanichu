@@ -26,17 +26,25 @@
     <!-- Contenu principal... -->
   </main>
 
-  <script>
-    // Script de changement de langue
-    function changerLangue(langue) {
-      const elements = document.querySelectorAll('[data-fr]');
-      elements.forEach(el => {
-        el.textContent = el.dataset[langue];
-      });
-    }
+<script>
+  // ✅ Initialisation de la langue
+  document.addEventListener('DOMContentLoaded', function() {
+    // Activer la langue par défaut
+    changerLangue('fr');
+    
+    // Gérer le changement de langue
     document.getElementById('langue').addEventListener('change', function() {
       changerLangue(this.value);
     });
-  </script>
+  });
+
+  function changerLangue(langue) {
+    // Traduire tous les éléments
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      if (el.tagName === 'OPTION') return; // Ne pas traduire les options du select
+      el.textContent = el.getAttribute(`data-${langue}`);
+    });
+  }
+</script>
 </body>
 </html>

@@ -7,14 +7,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Menu horizontal -->
   <header class="top-header">
     <nav class="navbar">
       <div class="logo" data-fr="MontagePro" data-en="EditPro">MontagePro</div>
       <div class="nav-links">
-        <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
-        <a href="offres.html" class="active" data-fr="Nos Offres" data-en="Our Offers">Nos Offres</a>
-        <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+        <a href="./index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+        <a href="./offres.html" class="active" data-fr="Nos Offres" data-en="Our Offers">Nos Offres</a>
+        <a href="./contact.html" data-fr="Contact" data-en="Contact">Contact</a>
         <select id="langue">
           <option value="fr">FR</option>
           <option value="en">EN</option>
@@ -27,14 +26,15 @@
     <section class="intro-text">
       <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
       <div class="game-switcher">
-        <button class="game-btn active" data-game="fortnite" data-fr="Fortnite" data-en="Fortnite">Fortnite</button>
-        <button class="game-btn" data-game="valorant" data-fr="Valorant" data-en="Valorant">Valorant</button>
+        <button class="game-btn active" data-game="fortnite">Fortnite</button>
+        <button class="game-btn" data-game="valorant">Valorant</button>
         <div class="active-indicator"></div>
       </div>
     </section>
 
     <!-- Offres Fortnite -->
     <section class="offres-container fortnite">
+      <!-- Offre 1 Fortnite -->
       <div class="offre">
         <h2 data-fr="Pack Basique" data-en="Basic Pack">Pack Basique</h2>
         <div class="offre-content">
@@ -50,6 +50,7 @@
         </div>
       </div>
 
+      <!-- Offre 2 Fortnite -->
       <div class="offre">
         <h2 data-fr="Pack Avancé" data-en="Advanced Pack">Pack Avancé</h2>
         <div class="offre-content">
@@ -67,7 +68,8 @@
     </section>
 
     <!-- Offres Valorant -->
-    <section class="offres-container valorant" style="display:none;">
+    <section class="offres-container valorant">
+      <!-- Offre 1 Valorant -->
       <div class="offre">
         <h2 data-fr="Pack Débutant" data-en="Starter Pack">Pack Débutant</h2>
         <div class="offre-content">
@@ -83,6 +85,7 @@
         </div>
       </div>
 
+      <!-- Offre 2 Valorant -->
       <div class="offre">
         <h2 data-fr="Pack Pro" data-en="Pro Pack">Pack Pro</h2>
         <div class="offre-content">
@@ -108,33 +111,43 @@
   </footer>
 
   <script>
-    // Changement de langue
-    function changerLangue(langue) {
-      document.querySelectorAll('[data-fr]').forEach(el => {
-        el.textContent = el.getAttribute(`data-${langue}`);
-      });
-    }
-
-    // Switch Fortnite/Valorant
+    // ✅ Gestion des onglets Fortnite/Valorant
     document.querySelectorAll('.game-btn').forEach(btn => {
       btn.addEventListener('click', function() {
+        // Mettre à jour l'UI
         document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         
+        // Déplacer l'indicateur
         const indicator = document.querySelector('.active-indicator');
         indicator.style.left = this.dataset.game === 'fortnite' ? '0' : '50%';
         
-        document.querySelectorAll('.offres-container').forEach(container => {
-          container.style.display = 'none';
-        });
-        document.querySelector(`.${this.dataset.game}`).style.display = 'block';
+        // Afficher les bonnes offres
+        document.querySelector('.fortnite').style.display = 
+          this.dataset.game === 'fortnite' ? 'grid' : 'none';
+        document.querySelector('.valorant').style.display = 
+          this.dataset.game === 'valorant' ? 'grid' : 'none';
       });
     });
 
-    // Initialisation
-    document.getElementById('langue').addEventListener('change', function() {
-      changerLangue(this.value);
+    // ✅ Traduction
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialiser la langue
+      changerLangue('fr');
+      
+      // Écouter les changements
+      document.getElementById('langue').addEventListener('change', function() {
+        changerLangue(this.value);
+      });
     });
+
+    function changerLangue(langue) {
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        if (el.tagName !== 'OPTION') {
+          el.textContent = el.getAttribute(`data-${langue}`);
+        }
+      });
+    }
   </script>
 </body>
 </html>

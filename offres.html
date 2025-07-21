@@ -9,7 +9,7 @@
 <body>
   <header class="top-header">
     <nav class="navbar">
-      <div class="logo" data-fr="Stanichu" data-en="EditPro">Stanichu</div>
+      <div class="logo" data-fr="Stanichu" data-en="Stanichu">Stanichu</div>
       <div class="nav-links">
         <a href="./index.html" data-fr="Accueil" data-en="Home">Accueil</a>
         <a href="./offres.html" class="active" data-fr="Nos Offres" data-en="Our Offers">Nos Offres</a>
@@ -104,8 +104,8 @@
   </main>
 
   <footer>
-    <p data-fr="© 2023 MontagePro - Tous droits réservés" 
-       data-en="© 2023 EditPro - All rights reserved">
+    <p data-fr="© 2025 Stanichu - Tous droits réservés" 
+       data-en="© 2025 Stanichu - All rights reserved">
        © 2025 Stanichu - Tous droits réservés
     </p>
   </footer>
@@ -114,7 +114,7 @@
 // ✅ 1. GESTION DES OFFRES (Fortnite/Valorant)
 function setupOffres() {
   // Afficher Fortnite par défaut
-  document.querySelector('.fortnite').style.display = 'grid';
+  document.querySelector('.fortnite').style.display = 'block';
   document.querySelector('.valorant').style.display = 'none';
   
   // Écouter les clics
@@ -132,7 +132,7 @@ function setupOffres() {
       document.querySelectorAll('.offres-container').forEach(sec => {
         sec.style.display = 'none';
       });
-      document.querySelector(`.${this.dataset.game}`).style.display = 'grid';
+      document.querySelector(`.${this.dataset.game}`).style.display = 'block';
     });
   });
 }

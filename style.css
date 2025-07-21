@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset de base */
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +6,10 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   background: #0f0f0f;
   color: white;
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 /* Header */
@@ -22,7 +22,7 @@ body {
   z-index: 1000;
 }
 
-.header-container {
+.header-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -33,29 +33,25 @@ body {
 .logo {
   font-weight: bold;
   font-size: 1.5rem;
-  margin-right: 40px;
+  margin-right: auto; /* Pousse tout à droite après le logo */
 }
 
-.main-nav {
+.header-content nav {
   display: flex;
   gap: 30px;
-  flex-grow: 1;
-  justify-content: center;
 }
 
-.main-nav a {
+.header-content a {
   color: white;
   text-decoration: none;
-  padding: 5px 10px;
 }
 
-.main-nav a.active {
+.header-content a.active {
   color: #6772e5;
-  border-bottom: 2px solid #6772e5;
 }
 
 /* Sélecteurs */
-.selectors-container {
+.switchers {
   max-width: 1200px;
   margin: 30px auto;
   display: flex;
@@ -64,7 +60,8 @@ body {
   padding: 0 20px;
 }
 
-.switcher {
+.game-switcher,
+.type-switcher {
   position: relative;
   display: flex;
   background: #2a2a2a;
@@ -72,46 +69,42 @@ body {
   padding: 5px;
 }
 
-.switch-btn {
-  flex: 1;
+.switcher-btn {
   padding: 10px 20px;
   background: none;
   border: none;
   color: #aaa;
   cursor: pointer;
-  position: relative;
   z-index: 2;
+  position: relative;
 }
 
-.switch-btn.active {
+.switcher-btn.active {
   color: white;
 }
 
-.active-indicator {
+.active-bar {
   position: absolute;
-  top: 5px;
-  bottom: 5px;
-  width: calc(50% - 5px);
+  bottom: 0;
+  height: 3px;
+  width: 50%;
   background: #6772e5;
-  border-radius: 5px;
-  z-index: 1;
   transition: left 0.3s ease;
+  z-index: 1;
 }
 
 /* Offres */
-.offres-grid {
+.offres-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  padding: 20px;
 }
 
-.offre-card {
+.offre {
   background: #1e1e1e;
   border-radius: 10px;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .buy-btn {
@@ -122,6 +115,4 @@ body {
   border-radius: 5px;
   margin-top: 15px;
   cursor: pointer;
-  display: block;
-  width: 100%;
 }

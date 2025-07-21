@@ -24,7 +24,6 @@
 
   <main>
     <section class="intro-text">
-      <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
       <div class="game-switcher">
         <button class="game-btn active" data-game="fortnite">Fortnite</button>
         <button class="game-btn" data-game="valorant">Valorant</button>
@@ -32,6 +31,22 @@
       </div>
     </section>
 
+<div class="selection-container">
+  <!-- Sélecteur Jeu (gauche) -->
+  <div class="game-switcher">
+    <button class="selection-btn active" data-category="game" data-value="fortnite">Fortnite</button>
+    <button class="selection-btn" data-category="game" data-value="valorant">Valorant</button>
+    <div class="active-indicator"></div>
+  </div>
+  
+  <!-- Sélecteur Type (droite) -->
+  <div class="type-switcher">
+    <button class="selection-btn active" data-category="type" data-value="montage">Montage</button>
+    <button class="selection-btn" data-category="type" data-value="miniature">Miniature</button>
+    <div class="active-indicator"></div>
+  </div>
+</div>
+    
     <!-- Offres Fortnite -->
     <section class="offres-container fortnite">
       <!-- Offre 1 Fortnite -->

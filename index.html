@@ -1,77 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Service de montage vidéo personnalisé pour vos clips Fortnite ou Valorant." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil – Montage Vidéo</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- ✅ MENU HORIZONTAL -->
-  <header class="top-header">
-    <nav class="navbar">
-      <div class="logo">🎬 Studio Montage Vidéo</div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Accueil</a></li>
-        <li><a href="offres.html">Nos Offres</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <select id="langue" onchange="changerLangue(this.value)">
-        <option value="fr">€ - FR</option>
-        <option value="en">£ - EN</option>
+  <!-- ✅ Menu horizontal uniquement -->
+  <nav class="top-nav">
+    <div class="nav-links">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="offres.html">Nos Offres</a>
+      <a href="contact.html">Contact</a>
+      <select id="langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
       </select>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
-  <!-- ✅ CONTENU PRINCIPAL -->
   <main>
-    <section class="intro-text">
-      <h1 data-fr="Bienvenue sur notre service de montage vidéo" data-en="Welcome to our video editing service">
-        Bienvenue sur notre service de montage vidéo
-      </h1>
-      <p data-fr="Envie d’un montage percutant pour vos clips Fortnite ou Valorant ? On s’en charge !" 
-         data-en="Want a powerful edit for your Fortnite or Valorant clips? We've got you covered!">
-         Envie d’un montage percutant pour vos clips Fortnite ou Valorant ? On s’en charge !
-      </p>
-    </section>
-
-    <section class="videos">
-      <div class="video-wrapper">
-        <iframe width="300" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        <div class="video-title">Exemple de montage Fortnite</div>
-      </div>
-      <div class="video-wrapper">
-        <iframe width="300" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        <div class="video-title">Exemple de montage Valorant</div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <a href="offres.html" class="pay-btn" 
-         data-fr="Voir nos offres" data-en="See our offers">Voir nos offres</a>
-    </section>
+    <!-- Contenu principal... -->
   </main>
 
-  <footer>
-    <p>&copy; 2025 MontagePro. Tous droits réservés.</p>
-  </footer>
-
-  <!-- ✅ SCRIPT MULTILINGUE -->
   <script>
+    // Script de changement de langue
     function changerLangue(langue) {
-      document.documentElement.lang = langue;
       const elements = document.querySelectorAll('[data-fr]');
       elements.forEach(el => {
         el.textContent = el.dataset[langue];
       });
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      changerLangue('fr');
+    document.getElementById('langue').addEventListener('change', function() {
+      changerLangue(this.value);
     });
   </script>
-
 </body>
 </html>

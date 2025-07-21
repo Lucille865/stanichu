@@ -1,175 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Découvrez nos offres de montage vidéo : Basique, Pro et Premium avec paiement sécurisé.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nos Offres</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- ✅ MENU VERTICAL -->
-  <nav class="sidebar">
-    <a href="index.html">Accueil</a>
-    <select id="langue" onchange="changerLangue(this.value)">
-      <option value="fr">€-FR</option>
-      <option value="en">£-EN</option>
-    </select>
+  <!-- ✅ Menu horizontal centré -->
+  <nav class="main-nav">
+    <div class="nav-content">
+      <a href="index.html">Accueil</a>
+      <a href="offres.html" class="active">Nos Offres</a>
+      <a href="galerie.html">Galerie</a>
+      <select id="langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
   </nav>
 
+  <!-- ✅ En-tête avec switch Fortnite/Valorant -->
+  <header>
+    <h1>Nos Offres de Montage</h1>
+    <div class="game-tabs">
+      <button class="tab-btn active" data-tab="fortnite">Fortnite</button>
+      <button class="tab-btn" data-tab="valorant">Valorant</button>
+      <div class="tab-indicator"></div>
+    </div>
+  </header>
 
-  <!-- ✅ CONTENU PRINCIPAL -->
-<main>
-<header>
-  <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
-  <div class="menu-categories">
-  <div class="categorie active" onclick="changerCategorie(0)">Fortnite</div>
-  <div class="categorie" onclick="changerCategorie(1)">Valorant</div>
-  <div class="trait" id="trait"></div>
-  </div>
-</header>
-<section class="intro">
-  <p data-fr="Choisissez l'offre qui correspond à vos besoins." data-en="Choose the package that suits your needs.">
-    Choisissez l'offre qui correspond à vos besoins.
-  </p>
-</section>
-
-<section class="offres">
-  <!-- Offres Fortnite -->
-  <div class="offre-container fortnite">
-    <div class="offre">
-      <h2>Basique Fortnite</h2>
-      <div class="offre-content">
-        <div class="description">
-          <h3>Description</h3>
-          <p>Montage simple de vos meilleurs moments en partie solo/duo/squad.</p>
-          <ul>
-            <li>Jusqu'à 1 minute de vidéo finale</li>
-            <li>1 vidéo source</li>
-            <li>1 musique libre de droits</li>
-            <li>Délai de 48h</li>
-          </ul>
-        </div>
-        <div class="video-example">
-          <h3>Exemple</h3>
-          <iframe width="280" height="158" src="https://www.youtube.com/embed/uIbKh9avmgo" frameborder="0" allowfullscreen></iframe>
+  <main>
+    <!-- ✅ Offres Fortnite (pleine largeur) -->
+    <section class="tab-content active" id="fortnite">
+      <div class="offre">
+        <div class="offre-grid">
+          <div class="offre-details">
+            <h2>Pack Basique</h2>
+            <ul>
+              <li>Montage 1 minute max</li>
+              <li>1 musique libre de droits</li>
+              <li>Rendu 1080p</li>
+              <li>Délai 48h</li>
+            </ul>
+          </div>
+          <div class="offre-price">
+            <span>5€</span>
+            <a href="#" class="cta-btn">Commander</a>
+          </div>
         </div>
       </div>
-      <div class="price">5 €</div>
-      <a href="https://buy.stripe.com/test_fortnite_basique" class="pay-btn" target="_blank">Commander</a>
-    </div>
 
-    <div class="offre">
-      <h2>Pro Fortnite</h2>
-      <div class="offre-content">
-        <div class="description">
-          <h3>Description</h3>
-          <p>Montage avancé pour content creators et joueurs compétitifs.</p>
-          <ul>
-            <li>Jusqu'à 3 minutes de vidéo</li>
-            <li>Transitions dynamiques</li>
-            <li>3 musiques au choix</li>
-            <li>Effets sonores</li>
-            <li>Délai de 24h</li>
-          </ul>
-        </div>
-        <div class="video-example">
-          <h3>Exemple</h3>
-          <iframe width="280" height="158" src="https://www.youtube.com/embed/nyWvbA3ACe4" frameborder="0" allowfullscreen></iframe>
+      <!-- Autres offres Fortnite... -->
+    </section>
+
+    <!-- ✅ Offres Valorant (pleine largeur) -->
+    <section class="tab-content" id="valorant">
+      <div class="offre">
+        <div class="offre-grid">
+          <div class="offre-details">
+            <h2>Pack Débutant</h2>
+            <ul>
+              <li>Synchro des kills</li>
+              <li>Montage 2 minutes max</li>
+              <li>Musique épique</li>
+              <li>Délai 72h</li>
+            </ul>
+          </div>
+          <div class="offre-price">
+            <span>7€</span>
+            <a href="#" class="cta-btn">Commander</a>
+          </div>
         </div>
       </div>
-      <div class="price">10 €</div>
-      <a href="https://buy.stripe.com/test_fortnite_pro" class="pay-btn" target="_blank">Commander</a>
-    </div>
-  </div>
-
-  <!-- Offres Valorant (caché par défaut) -->
-  <div class="offre-container valorant" style="display:none;">
-    <div class="offre">
-      <h2>Débutant Valorant</h2>
-      <div class="offre-content">
-        <div class="description">
-          <h3>Description</h3>
-          <p>Montage de vos meilleurs clutches et aces.</p>
-          <ul>
-            <li>Synchronisation des kills</li>
-            <li>1 musique épique</li>
-            <li>Jusqu'à 2 minutes</li>
-            <li>Délai de 72h</li>
-          </ul>
-        </div>
-        <div class="video-example">
-          <h3>Exemple</h3>
-          <iframe width="280" height="158" src="https://www.youtube.com/embed/example_valorant1" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="price">7 €</div>
-      <a href="https://buy.stripe.com/test_valorant_starter" class="pay-btn" target="_blank">Commander</a>
-    </div>
-
-    <div class="offre">
-      <h2>Compétitif Valorant</h2>
-      <div class="offre-content">
-        <div class="description">
-          <h3>Description</h3>
-          <p>Montage pro pour joueurs esport et streamers.</p>
-          <ul>
-            <li>Effets sur les kills</li>
-            <li>HUD personnalisé</li>
-            <li>Jusqu'à 5 minutes</li>
-            <li>3 musiques</li>
-            <li>Délai de 48h</li>
-          </ul>
-        </div>
-        <div class="video-example">
-          <h3>Exemple</h3>
-          <iframe width="280" height="158" src="https://www.youtube.com/embed/example_valorant2" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="price">15 €</div>
-      <a href="https://buy.stripe.com/test_valorant_competitive" class="pay-btn" target="_blank">Commander</a>
-    </div>
-  </div>
-</section>
+      <!-- Autres offres Valorant... -->
+    </section>
   </main>
 
   <script>
-  function changerLangue(langue) {
-    document.documentElement.lang = langue;
-    const elements = document.querySelectorAll('[data-fr]');
-    elements.forEach(el => {
-      el.textContent = el.dataset[langue];
+    // ✅ Script pour switcher entre onglets
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Active le bouton cliqué
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Déplace l'indicateur
+        const indicator = document.querySelector('.tab-indicator');
+        indicator.style.left = btn.dataset.tab === 'fortnite' ? '0' : '50%';
+        
+        // Affiche le bon contenu
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.style.display = content.id === btn.dataset.tab ? 'block' : 'none';
+        });
+      });
     });
-  }
-
-function changerCategorie(index) {
-  const categories = document.querySelectorAll('.categorie');
-  const trait = document.getElementById('trait');
-  
-  // Mise à jour de l'UI des onglets
-  categories.forEach(c => c.classList.remove('active'));
-  categories[index].classList.add('active');
-  trait.style.left = index * 50 + '%';
-  
-  // Gestion de l'affichage des offres
-  const fortniteContainer = document.querySelector('.offre-container.fortnite');
-  const valorantContainer = document.querySelector('.offre-container.valorant');
-  
-  if (index === 0) { // Fortnite
-    fortniteContainer.style.display = 'flex';
-    valorantContainer.style.display = 'none';
-  } else { // Valorant
-    fortniteContainer.style.display = 'none';
-    valorantContainer.style.display = 'flex';
-  }
-}
-
-// Initialisation
-document.addEventListener('DOMContentLoaded', () => {
-  changerCategorie(0); // Afficher Fortnite par défaut
-});
-</script>
-
+  </script>
 </body>
 </html>

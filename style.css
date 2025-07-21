@@ -255,6 +255,68 @@ body {
   padding: 0 40px; /* Plus large */
 }
 
+/* Bouton Contact */
+.contact-btn {
+  margin-left: 30px;
+  background: #6772e5;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.contact-btn:hover {
+  background: #5469d4;
+  transform: translateY(-2px);
+}
+
+/* Modale Contact */
+.contact-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-modal-content {
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.contact-link {
+  display: block;
+  color: #6772e5;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .video-card, .review-card {

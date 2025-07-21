@@ -13,12 +13,12 @@ body {
   padding-top: 70px; /* Espace pour le menu fixe */
 }
 
-/* ===== MENU HORIZONTAL ===== */
+/* ===== HEADER FIXE ===== */
 .main-header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #111;
+  background: #111;
   padding: 15px 0;
   z-index: 1000;
 }
@@ -26,28 +26,33 @@ body {
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* Colonnes égales */
+  display: flex;
   align-items: center;
   padding: 0 20px;
 }
 
+/* Logo à gauche */
 .logo {
   font-size: 1.5em;
   font-weight: bold;
-  justify-self: start; /* Aligne à gauche */
+  margin-right: auto; /* Pousse tout vers la droite */
 }
 
-.header-content nav {
+/* Navigation CENTRÉE */
+.nav-center {
   display: flex;
   gap: 30px;
-  justify-self: center; /* Centre parfaitement */
+  position: absolute; /* Positionnement absolu */
+  left: 50%; /* Départ à 50% */
+  transform: translateX(-50%); /* Recentrage précis */
 }
 
+/* Select à droite */
 .header-content select {
-  justify-self: end; /* Aligne à droite */
+  margin-left: auto;
 }
 
+/* Style des liens */
 .header-content a {
   color: white;
   text-decoration: none;

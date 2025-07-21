@@ -24,18 +24,19 @@ body {
 }
 
 .header-content {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Ajouté */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 20px;
+  width: 100%; /* Ajouté */
 }
 
 /* Logo à gauche */
 .logo {
   font-size: 1.5em;
   font-weight: bold;
-  margin-right: auto; /* Pousse tout vers la droite */
 }
 
 /* Navigation CENTRÉE */
@@ -45,6 +46,13 @@ body {
   position: absolute; /* Positionnement absolu */
   left: 50%; /* Départ à 50% */
   transform: translateX(-50%); /* Recentrage précis */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto; /* Pousse tout vers la droite */
 }
 
 /* Select à droite */
@@ -257,7 +265,7 @@ body {
 
 /* Bouton Contact */
 .contact-btn {
-  margin-left: 30px;
+  order: 1; /* S'assure qu'il est à droite */
   background: #6772e5;
   color: white;
   border: none;
@@ -266,6 +274,10 @@ body {
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
+}
+
+#langue {
+  order: 2; /* Place le sélecteur de langue à gauche du bouton */
 }
 
 .contact-btn:hover {

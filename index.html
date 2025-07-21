@@ -113,45 +113,45 @@
     document.getElementById('langue').addEventListener('change', function() {
       // Implémentez la logique de traduction ici
     });
-      // Slider Vidéos
-  const videoSlider = document.querySelector('.videos-slider');
-  const videoPrev = document.querySelector('.videos-slider').closest('.section').querySelector('.prev-arrow');
-  const videoNext = document.querySelector('.videos-slider').closest('.section').querySelector('.next-arrow');
-  
-  // Slider Avis
-  const reviewSlider = document.querySelector('.reviews-slider');
-  const reviewPrev = document.querySelector('.reviews-slider').closest('.section').querySelector('.prev-arrow');
-  const reviewNext = document.querySelector('.reviews-slider').closest('.section').querySelector('.next-arrow');
-
-  function setupSlider(slider, prevBtn, nextBtn, cardWidth) {
+document.addEventListener('DOMContentLoaded', function() {
+  // Configuration des sliders
+  function initSlider(sliderClass, visibleItems) {
+    const slider = document.querySelector(`.${sliderClass}`);
+    const container = slider.parentElement;
+    const prev = container.closest('.section').querySelector('.prev-arrow');
+    const next = container.closest('.section').querySelector('.next-arrow');
+    const items = slider.children;
+    const itemWidth = items[0].offsetWidth + 30; // Largeur + gap
     let currentPosition = 0;
-    const cards = slider.children;
-    const totalCards = cards.length;
-    
-    function updateSlider() {
+    const maxPosition = -((items.length - visibleItems) * itemWidth);
+
+    function update() {
       slider.style.transform = `translateX(${currentPosition}px)`;
+      prev.disabled = currentPosition >= 0;
+      next.disabled = currentPosition <= maxPosition;
     }
-    
-    nextBtn.addEventListener('click', () => {
-      if (currentPosition > -(cardWidth * (totalCards - 2))) {
-        currentPosition -= cardWidth;
-        updateSlider();
+
+    next.addEventListener('click', () => {
+      if (currentPosition > maxPosition) {
+        currentPosition -= itemWidth * Math.min(visibleItems, 1);
+        update();
       }
     });
-    
-    prevBtn.addEventListener('click', () => {
+
+    prev.addEventListener('click', () => {
       if (currentPosition < 0) {
-        currentPosition += cardWidth;
-        updateSlider();
+        currentPosition += itemWidth * Math.min(visibleItems, 1);
+        update();
       }
     });
+
+    update();
   }
 
-  // Initialisation après chargement
-  window.addEventListener('load', () => {
-    setupSlider(videoSlider, videoPrev, videoNext, document.querySelector('.video-card').offsetWidth + 30);
-    setupSlider(reviewSlider, reviewPrev, reviewNext, document.querySelector('.review-card').offsetWidth + 30);
-  });
+  // Initialisation
+  initSlider('videos-slider', 3); // 3 vidéos visibles
+  initSlider('reviews-slider', 3); // 3 avis visibles
+});
   </script>
 </body>
 </html>

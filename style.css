@@ -1,181 +1,145 @@
-/* ===== PARTIE À GARDER (styles de base) ===== */
-body {
-  font-family: Arial, sans-serif;
+/* Reset et styles de base */
+* {
   margin: 0;
   padding: 0;
-  background: #f7f7f7;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f5f5f5;
   color: #333;
-  margin-left: 190px; /* pour le menu latéral */
+  line-height: 1.6;
 }
 
-header {
+/* Navigation principale */
+.main-nav {
   background: #111;
-  color: #fff;
-  padding: 20px;
-}
-
-.intro, section {
-  padding: 30px;
-  max-width: 900px;
-  margin: auto;
-}
-
-.intro p {
-  margin-top: 10px;
-  font-size: 1.1em;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #eee;
-  margin-top: 40px;
-}
-
-.sidebar {
-  position: fixed;
+  padding: 15px 0;
+  position: sticky;
   top: 0;
-  left: 0;
-  height: 100%;
-  width: 180px;
-  background-color: #111;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
+  z-index: 100;
 }
 
-.sidebar a,
-.sidebar select {
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.main-nav a {
   color: white;
   text-decoration: none;
-  margin-left: 20px;
-  font-size: 16px;
-  background: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.main-nav a.active {
+  background: #444;
+}
+
+.main-nav select {
+  padding: 5px;
+  border-radius: 4px;
   border: none;
 }
 
-.sidebar select {
-  color: #111;
-  background-color: white;
-  padding: 5px;
-  border-radius: 4px;
-}
-
-.pay-btn {
-  display: inline-block;
-  background: #6772e5;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.pay-btn:hover {
-  background: #5469d4;
-}
-
-/* ===== PARTIE À REMPLACER (menu catégories) ===== */
-/* Supprimez l'ancien style .menu-categories et remplacez par : */
-.menu-categories {
-  position: relative;
-  display: flex;
-  background-color: #111;
-  height: 50px;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  width: 100%;
-}
-
-.menu-categories .categorie {
-  flex: 1;
+/* En-tête */
+header {
   text-align: center;
-  color: #aaa;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 50px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.menu-categories .categorie.active {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
   color: white;
 }
 
-.menu-categories .trait {
+header h1 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+/* Game switcher */
+.game-switcher {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 400px;
+  position: relative;
+}
+
+.game-btn {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.game-btn.active {
+  color: white;
+}
+
+.active-indicator {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 50%;
   height: 3px;
-  background-color: white;
+  background: white;
   transition: left 0.3s ease;
 }
 
-/* ===== NOUVELLE PARTIE À AJOUTER (styles des offres) ===== */
-.offres {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-  padding: 20px 0;
+/* Conteneur des offres */
+.offres-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.offre-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  width: 100%;
-  align-items: center;
-}
-
-.offre {
+/* Cartes d'offres */
+.offre.full-width {
   background: white;
+  margin-bottom: 20px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 600px;
-  transition: transform 0.3s ease;
-}
-
-.offre:hover {
-  transform: translateY(-5px);
-}
-
-.offre h2 {
-  background: #111;
-  color: white;
-  padding: 15px;
-  margin: 0;
-  text-align: center;
-  font-size: 1.5em;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .offre-content {
   display: flex;
-  padding: 20px;
-  gap: 20px;
+  padding: 30px;
 }
 
-.description, .video-example {
+.offre-text {
+  flex: 3;
+}
+
+.offre-actions {
   flex: 1;
-  min-width: 0; /* Empêche le débordement */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #eee;
+  padding-left: 30px;
 }
 
-.description h3, .video-example h3 {
-  margin-top: 0;
-  color: #444;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  font-size: 1.2em;
+.offre h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #222;
 }
 
 .description ul {
+  margin-top: 15px;
   padding-left: 20px;
-  line-height: 1.6;
 }
 
 .description li {
@@ -183,33 +147,44 @@ footer {
 }
 
 .price {
-  text-align: center;
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
-  padding: 10px;
-  background: #f7f7f7;
-  color: #333;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.pay-btn {
+  display: inline-block;
+  background: #6772e5;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.pay-btn:hover {
+  background: #5469d4;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  body {
-    margin-left: 0;
-    padding-left: 60px; /* Réduit l'espace pour mobile */
-  }
-  
-  .sidebar {
-    width: 60px;
-    overflow: hidden;
+  .nav-container {
+    gap: 15px;
+    flex-wrap: wrap;
   }
   
   .offre-content {
     flex-direction: column;
+    padding: 20px;
   }
   
-  .video-example iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+  .offre-actions {
+    border-left: none;
+    border-top: 1px solid #eee;
+    padding-left: 0;
+    padding-top: 20px;
+    margin-top: 20px;
   }
 }

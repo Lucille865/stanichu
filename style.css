@@ -68,13 +68,57 @@ select#langue {
   border: none;
 }
 
-/* Game Switcher */
-.game-switcher {
+/* Conteneur des deux sélecteurs */
+.selection-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1200px;
   margin: 20px auto;
-  max-width: 400px;
+  padding: 0 20px;
+}
+/* Game Switcher */
+.game-switcher, 
+.type-switcher {
   position: relative;
+  display: flex;
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 5px;
+  width: 48%; /* Pour qu'ils prennent environ la moitié de l'espace */
+}
+
+.selection-btn {
+  flex: 1;
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.selection-btn.active {
+  color: white;
+}
+
+.active-indicator {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  background: #6772e5;
+  border-radius: 5px;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* Ajustement pour le deuxième sélecteur */
+.type-switcher .active-indicator {
+  left: auto;
+  right: 5px;
 }
 
 .game-btn {
@@ -163,5 +207,15 @@ footer {
   
   .offres-container {
     grid-template-columns: 1fr;
+  }
+
+  .selection-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .game-switcher, 
+  .type-switcher {
+    width: 100%;
   }
 }

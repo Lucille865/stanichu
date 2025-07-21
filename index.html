@@ -27,20 +27,26 @@
     <section class="section">
       <div class="section-header">
         <h2 class="section-title">EXPLORE MY WORK</h2>
-        <a href="portfolio.html" class="view-all-btn">View all works →</a>
+        <div class="controls">
+          <button class="slider-arrow prev-arrow">←</button>
+          <a href="portfolio.html" class="view-all-btn">View all works →</a>
+          <button class="slider-arrow next-arrow">→</button>
+        </div>
       </div>
-      <div class="videos-grid">
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
+      <div class="slider-container">
+        <div class="videos-slider">
+          <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -48,10 +54,16 @@
     <!-- Section Avis -->
     <section class="section">
       <div class="section-header">
-        <h2 class="section-title">WHAT MY CLIENTS SAY</h2>
-        <a href="offres.html" class="view-all-btn">View all reviews →</a>
+        <div class="reviews-slider">
+          <h2 class="section-title">WHAT MY CLIENTS SAY</h2>
+          <div class="controls">
+            <button class="slider-arrow prev-arrow">←</button>
+            <a href="offres.html" class="view-all-btn">View all reviews →</a>
+            <button class="slider-arrow next-arrow">→</button>
+          </div>
+        </div>
       </div>
-      <div class="reviews-grid">
+      <div class="slider-container">
         <!-- Avis 1 -->
         <div class="review-card">
           <h3>Jean Dupont</h3>
@@ -95,6 +107,45 @@
     document.getElementById('langue').addEventListener('change', function() {
       // Implémentez la logique de traduction ici
     });
+      // Slider Vidéos
+  const videoSlider = document.querySelector('.videos-slider');
+  const videoPrev = document.querySelector('.videos-slider').closest('.section').querySelector('.prev-arrow');
+  const videoNext = document.querySelector('.videos-slider').closest('.section').querySelector('.next-arrow');
+  
+  // Slider Avis
+  const reviewSlider = document.querySelector('.reviews-slider');
+  const reviewPrev = document.querySelector('.reviews-slider').closest('.section').querySelector('.prev-arrow');
+  const reviewNext = document.querySelector('.reviews-slider').closest('.section').querySelector('.next-arrow');
+
+  function setupSlider(slider, prevBtn, nextBtn, cardWidth) {
+    let currentPosition = 0;
+    const cards = slider.children;
+    const totalCards = cards.length;
+    
+    function updateSlider() {
+      slider.style.transform = `translateX(${currentPosition}px)`;
+    }
+    
+    nextBtn.addEventListener('click', () => {
+      if (currentPosition > -(cardWidth * (totalCards - 2))) {
+        currentPosition -= cardWidth;
+        updateSlider();
+      }
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      if (currentPosition < 0) {
+        currentPosition += cardWidth;
+        updateSlider();
+      }
+    });
+  }
+
+  // Initialisation après chargement
+  window.addEventListener('load', () => {
+    setupSlider(videoSlider, videoPrev, videoNext, document.querySelector('.video-card').offsetWidth + 30);
+    setupSlider(reviewSlider, reviewPrev, reviewNext, document.querySelector('.review-card').offsetWidth + 30);
+  });
   </script>
 </body>
 </html>

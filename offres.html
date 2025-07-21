@@ -3,95 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Votre Titre</title>
+  <title>Nos Offres</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ✅ Menu horizontal TOP NAV -->
-  <nav class="top-menu">
-    <a href="index.html">Accueil</a>
-    <a href="offres.html">Nos Offres</a>
-    <a href="contact.html">Contact</a>
-    <select id="langue">
-      <option value="fr">FR</option>
-      <option value="en">EN</option>
-    </select>
-  </nav>
-
-  <!-- ✅ En-tête avec switch Fortnite/Valorant -->
-  <header>
-    <h1>Nos Offres de Montage</h1>
-    <div class="game-tabs">
-      <button class="tab-btn active" data-tab="fortnite">Fortnite</button>
-      <button class="tab-btn" data-tab="valorant">Valorant</button>
-      <div class="tab-indicator"></div>
-    </div>
+  <!-- Menu horizontal -->
+  <header class="top-header">
+    <nav class="navbar">
+      <div class="logo" data-fr="MontagePro" data-en="EditPro">MontagePro</div>
+      <div class="nav-links">
+        <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+        <a href="offres.html" class="active" data-fr="Nos Offres" data-en="Our Offers">Nos Offres</a>
+        <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+        <select id="langue">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <!-- ✅ Offres Fortnite (pleine largeur) -->
-    <section class="tab-content active" id="fortnite">
-      <div class="offre">
-        <div class="offre-grid">
-          <div class="offre-details">
-            <h2>Pack Basique</h2>
-            <ul>
-              <li>Montage 1 minute max</li>
-              <li>1 musique libre de droits</li>
-              <li>Rendu 1080p</li>
-              <li>Délai 48h</li>
-            </ul>
-          </div>
-          <div class="offre-price">
-            <span>5€</span>
-            <a href="#" class="cta-btn">Commander</a>
-          </div>
-        </div>
+    <section class="intro-text">
+      <h1 data-fr="Nos Offres de Montage" data-en="Our Editing Packages">Nos Offres de Montage</h1>
+      <div class="game-switcher">
+        <button class="game-btn active" data-game="fortnite" data-fr="Fortnite" data-en="Fortnite">Fortnite</button>
+        <button class="game-btn" data-game="valorant" data-fr="Valorant" data-en="Valorant">Valorant</button>
+        <div class="active-indicator"></div>
       </div>
-
-      <!-- Autres offres Fortnite... -->
     </section>
 
-    <!-- ✅ Offres Valorant (pleine largeur) -->
-    <section class="tab-content" id="valorant">
+    <!-- Offres Fortnite -->
+    <section class="offres-container fortnite">
       <div class="offre">
-        <div class="offre-grid">
-          <div class="offre-details">
-            <h2>Pack Débutant</h2>
+        <h2 data-fr="Pack Basique" data-en="Basic Pack">Pack Basique</h2>
+        <div class="offre-content">
+          <div class="description">
             <ul>
-              <li>Synchro des kills</li>
-              <li>Montage 2 minutes max</li>
-              <li>Musique épique</li>
-              <li>Délai 72h</li>
+              <li data-fr="Montage 1 minute max" data-en="Up to 1 minute edit">Montage 1 minute max</li>
+              <li data-fr="1 musique libre" data-en="1 royalty-free track">1 musique libre</li>
+              <li data-fr="Délai 48h" data-en="48h delivery">Délai 48h</li>
             </ul>
           </div>
-          <div class="offre-price">
-            <span>7€</span>
-            <a href="#" class="cta-btn">Commander</a>
-          </div>
+          <div class="price">5€</div>
+          <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
         </div>
       </div>
-      <!-- Autres offres Valorant... -->
+
+      <div class="offre">
+        <h2 data-fr="Pack Avancé" data-en="Advanced Pack">Pack Avancé</h2>
+        <div class="offre-content">
+          <div class="description">
+            <ul>
+              <li data-fr="Montage 3 minutes max" data-en="Up to 3 minutes edit">Montage 3 minutes max</li>
+              <li data-fr="Effets spéciaux" data-en="Special effects">Effets spéciaux</li>
+              <li data-fr="Délai 24h" data-en="24h delivery">Délai 24h</li>
+            </ul>
+          </div>
+          <div class="price">10€</div>
+          <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offres Valorant -->
+    <section class="offres-container valorant" style="display:none;">
+      <div class="offre">
+        <h2 data-fr="Pack Débutant" data-en="Starter Pack">Pack Débutant</h2>
+        <div class="offre-content">
+          <div class="description">
+            <ul>
+              <li data-fr="Synchro des kills" data-en="Kill sync">Synchro des kills</li>
+              <li data-fr="Montage 2 minutes" data-en="2 minutes edit">Montage 2 minutes</li>
+              <li data-fr="Délai 72h" data-en="72h delivery">Délai 72h</li>
+            </ul>
+          </div>
+          <div class="price">7€</div>
+          <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
+        </div>
+      </div>
+
+      <div class="offre">
+        <h2 data-fr="Pack Pro" data-en="Pro Pack">Pack Pro</h2>
+        <div class="offre-content">
+          <div class="description">
+            <ul>
+              <li data-fr="Effets cinématiques" data-en="Cinematic effects">Effets cinématiques</li>
+              <li data-fr="Montage 5 minutes" data-en="5 minutes edit">Montage 5 minutes</li>
+              <li data-fr="Délai 48h" data-en="48h delivery">Délai 48h</li>
+            </ul>
+          </div>
+          <div class="price">15€</div>
+          <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
+        </div>
+      </div>
     </section>
   </main>
 
+  <footer>
+    <p data-fr="© 2023 MontagePro - Tous droits réservés" 
+       data-en="© 2023 EditPro - All rights reserved">
+       © 2023 MontagePro - Tous droits réservés
+    </p>
+  </footer>
+
   <script>
-    // ✅ Script pour switcher entre onglets
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Active le bouton cliqué
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        // Déplace l'indicateur
-        const indicator = document.querySelector('.tab-indicator');
-        indicator.style.left = btn.dataset.tab === 'fortnite' ? '0' : '50%';
-        
-        // Affiche le bon contenu
-        document.querySelectorAll('.tab-content').forEach(content => {
-          content.style.display = content.id === btn.dataset.tab ? 'block' : 'none';
-        });
+    // Changement de langue
+    function changerLangue(langue) {
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${langue}`);
       });
+    }
+
+    // Switch Fortnite/Valorant
+    document.querySelectorAll('.game-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const indicator = document.querySelector('.active-indicator');
+        indicator.style.left = this.dataset.game === 'fortnite' ? '0' : '50%';
+        
+        document.querySelectorAll('.offres-container').forEach(container => {
+          container.style.display = 'none';
+        });
+        document.querySelector(`.${this.dataset.game}`).style.display = 'block';
+      });
+    });
+
+    // Initialisation
+    document.getElementById('langue').addEventListener('change', function() {
+      changerLangue(this.value);
     });
   </script>
 </body>

@@ -147,6 +147,40 @@ body {
   color: #6772e5;
 }
 
+/* ===== EN-TÊTE DE SECTION ===== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  margin: 0; /* Supprime la marge par défaut */
+  font-size: 1.8rem;
+  color: #6772e5;
+  text-align: left; /* Alignement à gauche */
+}
+
+.view-all-btn {
+  color: #6772e5;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.3s;
+}
+
+.view-all-btn:hover {
+  opacity: 0.8;
+}
+
+.view-all-btn::after {
+  content: "→";
+  font-size: 1.2em;
+}
+
 /* ===== GRID VIDÉOS ===== */
 .videos-grid {
   display: grid;
@@ -213,6 +247,11 @@ body {
   .switchers {
     flex-direction: column;
     gap: 15px;
+  }
+  .section-header {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   }
   .videos-grid,
   .reviews-grid {

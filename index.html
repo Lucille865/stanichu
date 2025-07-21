@@ -3,104 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nos Offres de Montage</title>
+  <meta name="description" content="Service de montage vidéo personnalisé pour vos clips Fortnite ou Valorant.">
+  <title>Accueil – Montage Vidéo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- ✅ MENU HORIZONTAL -->
   <nav class="main-nav">
     <div class="nav-container">
-      <a href="index.html">Accueil</a>
-      <a href="offres.html" class="active">Nos Offres</a>
-      <a href="galerie.html">Galerie</a>
-      <select id="langue">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="offres.html">Nos Offres</a>
+      <a href="contact.html">Contact</a>
+      <select id="langue" onchange="changerLangue(this.value)">
         <option value="fr">FR</option>
         <option value="en">EN</option>
       </select>
     </div>
   </nav>
 
-  <header>
-    <h1>Nos Offres de Montage</h1>
-    <div class="game-switcher">
-      <button class="game-btn active" data-game="fortnite">Fortnite</button>
-      <button class="game-btn" data-game="valorant">Valorant</button>
-      <div class="active-indicator"></div>
-    </div>
-  </header>
-
+  <!-- ✅ CONTENU PRINCIPAL -->
   <main>
-    <!-- Offres Fortnite (visible par défaut) -->
-    <section class="offres-container fortnite">
-      <div class="offre full-width">
-        <div class="offre-content">
-          <div class="offre-text">
-            <h2>Pack Basique</h2>
-            <div class="description">
-              <p>Montage simple de vos meilleurs moments Fortnite</p>
-              <ul>
-                <li>Jusqu'à 1 minute de vidéo</li>
-                <li>1 musique libre de droits</li>
-                <li>Délai de 48h</li>
-                <li>Format 1080p</li>
-              </ul>
-            </div>
-          </div>
-          <div class="offre-actions">
-            <div class="price">5 €</div>
-            <a href="#" class="pay-btn">Commander</a>
-          </div>
-        </div>
-      </div>
+    <header class="hero">
+      <h1 data-fr="Bienvenue sur notre service de montage vidéo" data-en="Welcome to our video editing service">
+        Bienvenue sur notre service de montage vidéo
+      </h1>
+      <p class="subtitle" data-fr="Transformez vos clips en vidéos épiques" data-en="Turn your clips into epic videos">
+        Transformez vos clips en vidéos épiques
+      </p>
+    </header>
 
-      <div class="offre full-width">
-        <!-- Autres offres Fortnite... -->
+    <section class="intro-section">
+      <div class="intro-content">
+        <p data-fr="Envie d'un montage percutant pour vos clips Fortnite ou Valorant ? On s'en charge !" 
+           data-en="Want a powerful edit for your Fortnite or Valorant clips? We've got you covered!">
+           Envie d'un montage percutant pour vos clips Fortnite ou Valorant ? On s'en charge !
+        </p>
+        <a href="offres.html" class="cta-btn" 
+           data-fr="Découvrir nos offres" data-en="View our packages">Découvrir nos offres</a>
       </div>
     </section>
 
-    <!-- Offres Valorant (masqué par défaut) -->
-    <section class="offres-container valorant" style="display:none;">
-      <div class="offre full-width">
-        <div class="offre-content">
-          <div class="offre-text">
-            <h2>Pack Débutant</h2>
-            <div class="description">
-              <p>Montage de vos clutches Valorant</p>
-              <ul>
-                <li>Synchronisation des kills</li>
-                <li>1 musique épique</li>
-                <li>Jusqu'à 2 minutes</li>
-                <li>Délai de 72h</li>
-              </ul>
-            </div>
+    <section class="video-showcase">
+      <h2 data-fr="Nos réalisations" data-en="Our work">Nos réalisations</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <div class="offre-actions">
-            <div class="price">7 €</div>
-            <a href="#" class="pay-btn">Commander</a>
+          <h3 data-fr="Montage Fortnite" data-en="Fortnite Edit">Montage Fortnite</h3>
+        </div>
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <h3 data-fr="Montage Valorant" data-en="Valorant Edit">Montage Valorant</h3>
         </div>
       </div>
-      <!-- Autres offres Valorant... -->
     </section>
   </main>
 
+  <footer class="main-footer">
+    <p>&copy; 2025 MontagePro. <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span>.</p>
+  </footer>
+
   <script>
-    // Script pour switcher entre Fortnite/Valorant
-    document.querySelectorAll('.game-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Mettre à jour les boutons
-        document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        // Déplacer l'indicateur
-        const indicator = document.querySelector('.active-indicator');
-        indicator.style.left = this.dataset.game === 'fortnite' ? '0' : '50%';
-        
-        // Afficher les bonnes offres
-        document.querySelector('.fortnite').style.display = 
-          this.dataset.game === 'fortnite' ? 'block' : 'none';
-        document.querySelector('.valorant').style.display = 
-          this.dataset.game === 'valorant' ? 'block' : 'none';
+    function changerLangue(langue) {
+      document.documentElement.lang = langue;
+      const elements = document.querySelectorAll('[data-fr]');
+      elements.forEach(el => {
+        el.textContent = el.dataset[langue];
       });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      changerLangue('fr');
     });
   </script>
 </body>

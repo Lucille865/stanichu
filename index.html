@@ -12,8 +12,8 @@
       <div class="logo">Stanichu</div>
       <div class="nav-center">
         <a href="index.html" class="active">Accueil</a>
-        <a href="offres.html">Nos Offres</a>
-        <a href="contact.html">Contact</a>
+        <a href="offres.html">Services</a>
+        <a href="contact.html">Portfolio</a>
       </div>
       <select id="langue">
         <option value="fr">FR</option>
@@ -112,9 +112,9 @@
       // Implémentez la logique de traduction ici
     });
     
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   // Configuration commune
-  function setupSlider(sliderSelector, itemSelector, itemsToShow) {
+  function setupSlider(sliderSelector, itemSelector) {
     const slider = document.querySelector(sliderSelector);
     const container = slider.parentElement;
     const prev = container.closest('.section').querySelector('.prev-arrow');
@@ -122,7 +122,7 @@
     const items = slider.querySelectorAll(itemSelector);
     const itemWidth = items[0].offsetWidth + 30; // Largeur + gap
     let currentPosition = 0;
-    const maxPosition = -((items.length - itemsToShow) * itemWidth);
+    const maxPosition = -((items.length - 1) * itemWidth); // Modification ici
 
     function updateSlider() {
       slider.style.transform = `translateX(${currentPosition}px)`;
@@ -132,24 +132,31 @@
 
     next.addEventListener('click', () => {
       if (currentPosition > maxPosition) {
-        currentPosition -= itemWidth * itemsToShow;
+        currentPosition -= itemWidth; // Défile d'un seul élément
         updateSlider();
       }
     });
 
     prev.addEventListener('click', () => {
       if (currentPosition < 0) {
-        currentPosition += itemWidth * itemsToShow;
+        currentPosition += itemWidth; // Défile d'un seul élément
         updateSlider();
       }
+    });
+
+    // Gestion du redimensionnement
+    window.addEventListener('resize', () => {
+      const newItemWidth = items[0].offsetWidth + 30;
+      currentPosition = currentPosition * (newItemWidth / itemWidth);
+      updateSlider();
     });
 
     updateSlider();
   }
 
   // Initialisation des sliders
-  setupSlider('.videos-slider', '.video-card', 3); // 3 vidéos visibles
-  setupSlider('.reviews-slider', '.review-card', 3); // 3 avis visibles
+  setupSlider('.videos-slider', '.video-card');
+  setupSlider('.reviews-slider', '.review-card');
 });
   </script>
 </body>

@@ -28,13 +28,14 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Changé de 'space-between' à 'center' */
   align-items: center;
+  gap: 40px; /* Ajout d'un espacement constant */
 }
 
 .logo {
-  font-size: 1.5em;
-  font-weight: bold;
+  position: absolute; /* Sort le logo du flux */
+  left: 20px;
 }
 
 .nav-links {

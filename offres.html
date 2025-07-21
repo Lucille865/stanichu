@@ -133,15 +133,27 @@ function setupOffres() {
   document.querySelector('.valorant').style.display = 'none';
   
   // Écouter les clics
-  document.querySelectorAll('.game-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      // Boutons actifs
-      document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
+  document.querySelectorAll('.selection-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const category = this.dataset.category;
+    const value = this.dataset.value;
+    
+    // Mettre à jour l'UI du sélecteur concerné
+    document.querySelectorAll(`[data-category="${category}"]`).forEach(b => {
+      b.classList.remove('active');
+    });
+    this.classList.add('active');
       
-      // Animation indicateur
-      document.querySelector('.active-indicator').style.left = 
-        this.dataset.game === 'fortnite' ? '0' : '50%';
+    // Animation indicateur
+    const container = this.closest('.game-switcher, .type-switcher');
+    const indicator = container.querySelector('.active-indicator');
+    const isLeft = container.classList.contains('game-switcher');
+    
+    indicator.style.left = isLeft ? '5px' : 'calc(50% + 2.5px)';
+    indicator.style.right = isLeft ? 'auto' : '5px';
+    
+    // Filtrer les offres (à adapter selon votre structure)
+    filterOffres();
       
       // Afficher la bonne section
       document.querySelectorAll('.offres-container').forEach(sec => {
@@ -149,6 +161,20 @@ function setupOffres() {
       });
       document.querySelector(`.${this.dataset.game}`).style.display = 'block';
     });
+  });
+}
+  function filterOffres() {
+  const selectedGame = document.querySelector('[data-category="game"].active').dataset.value;
+  const selectedType = document.querySelector('[data-category="type"].active').dataset.value;
+  
+  // Cacher toutes les offres
+  document.querySelectorAll('.offre').forEach(offre => {
+    offre.style.display = 'none';
+  });
+  
+  // Afficher seulement celles qui correspondent aux sélections
+  document.querySelectorAll(`.offre[data-game="${selectedGame}"][data-type="${selectedType}"]`).forEach(offre => {
+    offre.style.display = 'block';
   });
 }
 

@@ -18,24 +18,18 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: black;
-  padding: 15px 20px;
+  background-color: #1a1a1a;
+  padding: 15px 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .navbar {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: center; /* Changé de 'space-between' à 'center' */
+  justify-content: space-between;
   align-items: center;
-  gap: 40px; /* Ajout d'un espacement constant */
-}
-
-.logo {
-  position: absolute; /* Sort le logo du flux */
-  left: 20px;
+  padding: 0 20px;
 }
 
 .nav-links {
@@ -48,7 +42,6 @@ body {
   color: white;
   text-decoration: none;
   padding: 5px 10px;
-  transition: color 0.3s;
 }
 
 .nav-links a.active {
@@ -56,47 +49,35 @@ body {
   border-bottom: 2px solid #6772e5;
 }
 
-.nav-links a:hover {
-  color: #6772e5;
-}
-
-select#langue {
-  padding: 5px 10px;
-  border-radius: 4px;
-  background: #333;
-  color: white;
-  border: none;
-}
-
-/* Conteneur des deux sélecteurs */
+/* Sélecteurs */
 .selection-container {
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 0 20px;
+  gap: 20px;
 }
-/* Game Switcher */
-.game-switcher, 
-.type-switcher {
+
+.category-switcher {
   position: relative;
   display: flex;
   background: #2a2a2a;
   border-radius: 8px;
   padding: 5px;
-  width: 48%; /* Pour qu'ils prennent environ la moitié de l'espace */
+  flex: 1;
 }
 
 .selection-btn {
   flex: 1;
-  padding: 10px 15px;
+  padding: 10px;
   background: none;
   border: none;
   color: #aaa;
   font-weight: bold;
   cursor: pointer;
-  position: relative;
   z-index: 2;
+  position: relative;
 }
 
 .selection-btn.active {
@@ -107,7 +88,6 @@ select#langue {
   position: absolute;
   top: 5px;
   bottom: 5px;
-  left: 5px;
   width: calc(50% - 5px);
   background: #6772e5;
   border-radius: 5px;
@@ -115,107 +95,53 @@ select#langue {
   transition: all 0.3s ease;
 }
 
-/* Ajustement pour le deuxième sélecteur */
-.type-switcher .active-indicator {
-  left: auto;
-  right: 5px;
-}
-
-.game-btn {
-  flex: 1;
-  padding: 12px;
-  background: none;
-  border: none;
-  color: #aaa;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.game-btn.active {
-  color: white;
-}
-
-.active-indicator {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 3px;
-  background: #6772e5;
-  transition: left 0.3s ease;
-}
-
 /* Offres */
 .offres-container {
   max-width: 1200px;
-  margin: 30px auto;
+  margin: 0 auto;
   padding: 0 20px;
-  display: flex;          /* Changé de grid à flex */
-  flex-direction: column; /* Empilement vertical */
-  gap: 30px;
-  width: 100%;
+  display: none; /* Masqué par défaut */
+}
+
+.offres-container.active {
+  display: block; /* Affiche en colonne */
 }
 
 .offre {
   background: #1e1e1e;
   border-radius: 10px;
   padding: 25px;
-  width: 100%;           /* Prend toute la largeur */
-  box-sizing: border-box; /* Inclut le padding */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  width: 100%;
 }
 
+.offre-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #6772e5;
+}
 
 .pay-btn {
-  display: block;
   background: #6772e5;
   color: white;
-  text-align: center;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  transition: background 0.3s;
-}
-
-.pay-btn:hover {
-  background: #5469d4;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #111;
-  margin-top: 50px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  body {
-    padding-top: 70px;
-  }
-  
-  .navbar {
+  .selection-container {
     flex-direction: column;
-    gap: 15px;
   }
   
   .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .offres-container {
-    grid-template-columns: 1fr;
-  }
-
-  .selection-container {
-    flex-direction: column;
     gap: 15px;
-  }
-  
-  .game-switcher, 
-  .type-switcher {
-    width: 100%;
   }
 }

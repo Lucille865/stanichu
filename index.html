@@ -3,48 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Votre Titre</title>
+  <title>Accueil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ✅ Menu horizontal TOP NAV -->
-  <header class="top-header">
-    <nav class="navbar">
+  <header class="main-header">
+    <div class="header-content">
       <div class="logo" data-fr="Stanichu" data-en="Stanichu">Stanichu</div>
-      <div class="nav-links">
+      <nav>
         <a href="index.html" class="active" data-fr="Accueil" data-en="Home">Accueil</a>
         <a href="offres.html" data-fr="Nos Offres" data-en="Our Offers">Nos Offres</a>
         <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
-        <select id="langue">
-          <option value="fr">FR</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
-    </nav>
+      </nav>
+      <select id="langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
   </header>
+
   <main>
-    <!-- Contenu principal... -->
+    <section class="hero">
+      <h1 data-fr="Montages Vidéo Professionnels" data-en="Professional Video Editing">Montages Vidéo Professionnels</h1>
+      <p data-fr="Pour streamers et créateurs de contenu" data-en="For streamers and content creators">Pour streamers et créateurs de contenu</p>
+    </section>
   </main>
 
-<script>
-  // ✅ Initialisation de la langue
-  document.addEventListener('DOMContentLoaded', function() {
-    // Activer la langue par défaut
-    changerLangue('fr');
-    
-    // Gérer le changement de langue
-    document.getElementById('langue').addEventListener('change', function() {
-      changerLangue(this.value);
-    });
-  });
+  <script>
+    // Traduction
+    function updateLanguage(lang) {
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        if (el.tagName !== 'OPTION') {
+          el.textContent = el.getAttribute(`data-${lang}`);
+        }
+      });
+    }
 
-  function changerLangue(langue) {
-    // Traduire tous les éléments
-    document.querySelectorAll('[data-fr]').forEach(el => {
-      if (el.tagName === 'OPTION') return; // Ne pas traduire les options du select
-      el.textContent = el.getAttribute(`data-${langue}`);
+    document.getElementById('langue').addEventListener('change', (e) => {
+      updateLanguage(e.target.value);
     });
-  }
-</script>
+  </script>
 </body>
 </html>

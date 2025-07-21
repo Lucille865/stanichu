@@ -140,14 +140,6 @@ body {
   padding: 0 20px;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
-  color: #6772e5;
-}
-
-/* ===== EN-TÊTE DE SECTION ===== */
 .section-header {
   display: flex;
   justify-content: space-between;

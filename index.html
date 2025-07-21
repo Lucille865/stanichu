@@ -1,66 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Services professionnels de montage vidéo avec exemples, offres et paiement en ligne.">
-  <title>Studio Montage Vidéo</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Offres de Montage</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="sidebar">
-    <a href="offres.html">Gigs</a>
-    <a href="#galerie">Exemples</a>
-    <a href="#contact">Contact</a>
-    <select id="langue" onchange="changerLangue(this.value)">
-      <option value="fr">€-FR</option>
-      <option value="en">£-EN</option>
-    </select>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html">Accueil</a>
+      <a href="offres.html" class="active">Nos Offres</a>
+      <a href="galerie.html">Galerie</a>
+      <select id="langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
   </nav>
+
   <header>
-    <h1 data-fr="🎬 Studio Montage Vidéo" data-en="🎬 Video Editing Studio">🎬 Studio Montage Vidéo</h1>
+    <h1>Nos Offres de Montage</h1>
+    <div class="game-switcher">
+      <button class="game-btn active" data-game="fortnite">Fortnite</button>
+      <button class="game-btn" data-game="valorant">Valorant</button>
+      <div class="active-indicator"></div>
+    </div>
   </header>
 
   <main>
-    <section class="intro">
-      <h2 data-fr="Transformez vos vidéos en chefs-d’œuvre" data-en="Turn your videos into masterpieces">Transformez vos vidéos en chefs-d’œuvre</h2>
-      <p data-fr="Nous proposons des services de montage professionnels pour vos vidéos personnelles." data-en="We offer professional editing services for your personal videos.">Nous proposons des services de montage professionnels pour vos vidéos personnelles.</p>
-    </section>
-
-    <section id="galerie">
-      <h2 data-fr="Exemples de Montages" data-en="Examples of Edits">Exemples de Montages</h2>
-      <div class="videos">
-        <div class="video-wrapper">
-          <iframe width="300" height="170" src="https://www.youtube.com/embed/uIbKh9avmgo" frameborder="0" allowfullscreen></iframe>
-          <p class="video-title">Exemple de montage 1</p>
-        </div>
-        <div class="video-wrapper">
-          <iframe width="300" height="170" src="https://www.youtube.com/embed/nyWvbA3ACe4" frameborder="0" allowfullscreen></iframe>
-          <p class="video-title">Exemple de montage 2</p>
+    <!-- Offres Fortnite (visible par défaut) -->
+    <section class="offres-container fortnite">
+      <div class="offre full-width">
+        <div class="offre-content">
+          <div class="offre-text">
+            <h2>Pack Basique</h2>
+            <div class="description">
+              <p>Montage simple de vos meilleurs moments Fortnite</p>
+              <ul>
+                <li>Jusqu'à 1 minute de vidéo</li>
+                <li>1 musique libre de droits</li>
+                <li>Délai de 48h</li>
+                <li>Format 1080p</li>
+              </ul>
+            </div>
+          </div>
+          <div class="offre-actions">
+            <div class="price">5 €</div>
+            <a href="#" class="pay-btn">Commander</a>
+          </div>
         </div>
       </div>
 
+      <div class="offre full-width">
+        <!-- Autres offres Fortnite... -->
+      </div>
     </section>
 
-    <section id="contact">
-      <h2 data-fr="Contact & Paiement" data-en="Contact & Payment">Contact & Paiement</h2>
-      <p>📧 <a href="mailto:stanichu@gmail.com">stanichu.pro@gmail.com</a></p>
-      <p>💳 <a href="https://buy.stripe.com/test_1234567890" target="_blank" class="pay-btn" data-fr="Payer par Stripe" data-en="Pay via Stripe">Payer par Stripe</a></p>
+    <!-- Offres Valorant (masqué par défaut) -->
+    <section class="offres-container valorant" style="display:none;">
+      <div class="offre full-width">
+        <div class="offre-content">
+          <div class="offre-text">
+            <h2>Pack Débutant</h2>
+            <div class="description">
+              <p>Montage de vos clutches Valorant</p>
+              <ul>
+                <li>Synchronisation des kills</li>
+                <li>1 musique épique</li>
+                <li>Jusqu'à 2 minutes</li>
+                <li>Délai de 72h</li>
+              </ul>
+            </div>
+          </div>
+          <div class="offre-actions">
+            <div class="price">7 €</div>
+            <a href="#" class="pay-btn">Commander</a>
+          </div>
+        </div>
+      </div>
+      <!-- Autres offres Valorant... -->
     </section>
   </main>
 
-  <footer>
-    <p data-fr="© 2025 Studio Montage Vidéo" data-en="© 2025 Video Editing Studio">© 2025 Studio Montage Vidéo</p>
-  </footer>
-
   <script>
-    function changerLangue(langue) {
-      document.documentElement.lang = langue;
-      const elements = document.querySelectorAll('[data-fr]');
-      elements.forEach(el => {
-        el.textContent = el.dataset[langue];
+    // Script pour switcher entre Fortnite/Valorant
+    document.querySelectorAll('.game-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Mettre à jour les boutons
+        document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Déplacer l'indicateur
+        const indicator = document.querySelector('.active-indicator');
+        indicator.style.left = this.dataset.game === 'fortnite' ? '0' : '50%';
+        
+        // Afficher les bonnes offres
+        document.querySelector('.fortnite').style.display = 
+          this.dataset.game === 'fortnite' ? 'block' : 'none';
+        document.querySelector('.valorant').style.display = 
+          this.dataset.game === 'valorant' ? 'block' : 'none';
       });
-    }
+    });
   </script>
 </body>
 </html>

@@ -24,32 +24,28 @@
 
   <main>
     <section class="intro-text">
-      <div class="game-switcher">
-        <button class="game-btn active" data-game="fortnite">Fortnite</button>
-        <button class="game-btn" data-game="valorant">Valorant</button>
-        <div class="active-indicator"></div>
+      <h1 data-fr="Nos Offres" data-en="Our Offers">Nos Offres</h1>
+      
+      <!-- Double sélecteur -->
+      <div class="selection-container">
+        <!-- Sélecteur Jeu -->
+        <div class="switcher game-switcher">
+          <button class="selection-btn active" data-filter="game" data-value="fortnite" data-fr="Fortnite" data-en="Fortnite">Fortnite</button>
+          <button class="selection-btn" data-filter="game" data-value="valorant" data-fr="Valorant" data-en="Valorant">Valorant</button>
+          <div class="active-indicator"></div>
+        </div>
+        
+        <!-- Sélecteur Type -->
+        <div class="switcher type-switcher">
+          <button class="selection-btn active" data-filter="type" data-value="montage" data-fr="Montage" data-en="Editing">Montage</button>
+          <button class="selection-btn" data-filter="type" data-value="miniature" data-fr="Miniature" data-en="Thumbnail">Miniature</button>
+          <div class="active-indicator"></div>
+        </div>
       </div>
     </section>
 
-<div class="selection-container">
-  <!-- Sélecteur Jeu (gauche) -->
-  <div class="game-switcher">
-    <button class="selection-btn active" data-category="game" data-value="fortnite">Fortnite</button>
-    <button class="selection-btn" data-category="game" data-value="valorant">Valorant</button>
-    <div class="active-indicator"></div>
-  </div>
-  
-  <!-- Sélecteur Type (droite) -->
-  <div class="type-switcher">
-    <button class="selection-btn active" data-category="type" data-value="montage">Montage</button>
-    <button class="selection-btn" data-category="type" data-value="miniature">Miniature</button>
-    <div class="active-indicator"></div>
-  </div>
-</div>
-    
-    <!-- Offres Fortnite -->
-    <section class="offres-container fortnite">
-      <!-- Offre 1 Fortnite -->
+    <!-- Offres Fortnite + Montage -->
+    <section class="offres-container" data-game="fortnite" data-type="montage">
       <div class="offre">
         <h2 data-fr="Pack Basique" data-en="Basic Pack">Pack Basique</h2>
         <div class="offre-content">
@@ -64,8 +60,7 @@
           <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
         </div>
       </div>
-
-      <!-- Offre 2 Fortnite -->
+      
       <div class="offre">
         <h2 data-fr="Pack Avancé" data-en="Advanced Pack">Pack Avancé</h2>
         <div class="offre-content">
@@ -82,36 +77,53 @@
       </div>
     </section>
 
-    <!-- Offres Valorant -->
-    <section class="offres-container valorant">
-      <!-- Offre 1 Valorant -->
+    <!-- Autres combinaisons (masquées par défaut) -->
+    <section class="offres-container" data-game="fortnite" data-type="miniature" style="display:none">
       <div class="offre">
-        <h2 data-fr="Pack Débutant" data-en="Starter Pack">Pack Débutant</h2>
+        <h2 data-fr="Miniature Basique" data-en="Basic Thumbnail">Miniature Basique</h2>
         <div class="offre-content">
           <div class="description">
             <ul>
-              <li data-fr="Synchro des kills" data-en="Kill sync">Synchro des kills</li>
-              <li data-fr="Montage 2 minutes" data-en="2 minutes edit">Montage 2 minutes</li>
-              <li data-fr="Délai 72h" data-en="72h delivery">Délai 72h</li>
+              <li data-fr="Design simple" data-en="Simple design">Design simple</li>
+              <li data-fr="1 révision" data-en="1 revision">1 révision</li>
+              <li data-fr="Délai 24h" data-en="24h delivery">Délai 24h</li>
             </ul>
           </div>
-          <div class="price">7€</div>
+          <div class="price">8€</div>
           <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
         </div>
       </div>
-
-      <!-- Offre 2 Valorant -->
+    </section>
+    
+    <section class="offres-container" data-game="valorant" data-type="montage" style="display:none">
       <div class="offre">
-        <h2 data-fr="Pack Pro" data-en="Pro Pack">Pack Pro</h2>
+        <h2 data-fr="Pack Valorant" data-en="Valorant Pack">Pack Valorant</h2>
         <div class="offre-content">
           <div class="description">
             <ul>
-              <li data-fr="Effets cinématiques" data-en="Cinematic effects">Effets cinématiques</li>
-              <li data-fr="Montage 5 minutes" data-en="5 minutes edit">Montage 5 minutes</li>
+              <li data-fr="Montage compétitif" data-en="Competitive edit">Montage compétitif</li>
+              <li data-fr="Synchro des kills" data-en="Kill sync">Synchro des kills</li>
               <li data-fr="Délai 48h" data-en="48h delivery">Délai 48h</li>
             </ul>
           </div>
-          <div class="price">15€</div>
+          <div class="price">12€</div>
+          <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="offres-container" data-game="valorant" data-type="miniature" style="display:none">
+      <div class="offre">
+        <h2 data-fr="Miniature Valorant" data-en="Valorant Thumbnail">Miniature Valorant</h2>
+        <div class="offre-content">
+          <div class="description">
+            <ul>
+              <li data-fr="Style esport" data-en="Esport style">Style esport</li>
+              <li data-fr="Effets dynamiques" data-en="Dynamic effects">Effets dynamiques</li>
+              <li data-fr="Délai 48h" data-en="48h delivery">Délai 48h</li>
+            </ul>
+          </div>
+          <div class="price">10€</div>
           <a href="#" class="pay-btn" data-fr="Commander" data-en="Order Now">Commander</a>
         </div>
       </div>
@@ -126,80 +138,7 @@
   </footer>
 
   <script>
-// ✅ 1. GESTION DES OFFRES (Fortnite/Valorant)
-function setupOffres() {
-  // Afficher Fortnite par défaut
-  document.querySelector('.fortnite').style.display = 'block';
-  document.querySelector('.valorant').style.display = 'none';
-  
-  // Écouter les clics
-  document.querySelectorAll('.selection-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const category = this.dataset.category;
-    const value = this.dataset.value;
-    
-    // Mettre à jour l'UI du sélecteur concerné
-    document.querySelectorAll(`[data-category="${category}"]`).forEach(b => {
-      b.classList.remove('active');
-    });
-    this.classList.add('active');
-      
-    // Animation indicateur
-    const container = this.closest('.game-switcher, .type-switcher');
-    const indicator = container.querySelector('.active-indicator');
-    const isLeft = container.classList.contains('game-switcher');
-    
-    indicator.style.left = isLeft ? '5px' : 'calc(50% + 2.5px)';
-    indicator.style.right = isLeft ? 'auto' : '5px';
-    
-    // Filtrer les offres (à adapter selon votre structure)
-    filterOffres();
-      
-      // Afficher la bonne section
-      document.querySelectorAll('.offres-container').forEach(sec => {
-        sec.style.display = 'none';
-      });
-      document.querySelector(`.${this.dataset.game}`).style.display = 'block';
-    });
-  });
-}
-  function filterOffres() {
-  const selectedGame = document.querySelector('[data-category="game"].active').dataset.value;
-  const selectedType = document.querySelector('[data-category="type"].active').dataset.value;
-  
-  // Cacher toutes les offres
-  document.querySelectorAll('.offre').forEach(offre => {
-    offre.style.display = 'none';
-  });
-  
-  // Afficher seulement celles qui correspondent aux sélections
-  document.querySelectorAll(`.offre[data-game="${selectedGame}"][data-type="${selectedType}"]`).forEach(offre => {
-    offre.style.display = 'block';
-  });
-}
-
-// ✅ 2. INITIALISATION AU CHARGEMENT
-document.addEventListener('DOMContentLoaded', function() {
-  setupOffres();
-  changerLangue('fr'); // Français par défaut
-  
-  // Écouter le changement de langue
-  document.getElementById('langue').addEventListener('change', function() {
-    changerLangue(this.value);
-  });
-});
-
-    // ✅ Traduction
-    document.addEventListener('DOMContentLoaded', function() {
-      // Initialiser la langue
-      changerLangue('fr');
-      
-      // Écouter les changements
-      document.getElementById('langue').addEventListener('change', function() {
-        changerLangue(this.value);
-      });
-    });
-
+    // ========== TRADUCTION ==========
     function changerLangue(langue) {
       document.querySelectorAll('[data-fr]').forEach(el => {
         if (el.tagName !== 'OPTION') {
@@ -207,6 +146,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+
+    // ========== FILTRES ==========
+    function filterOffers() {
+      const game = document.querySelector('[data-filter="game"].active').dataset.value;
+      const type = document.querySelector('[data-filter="type"].active').dataset.value;
+      
+      // Masquer toutes les offres
+      document.querySelectorAll('.offres-container').forEach(container => {
+        container.style.display = 'none';
+      });
+      
+      // Afficher celles qui correspondent
+      const activeContainer = document.querySelector(`.offres-container[data-game="${game}"][data-type="${type}"]`);
+      if (activeContainer) activeContainer.style.display = 'block';
+    }
+
+    // ========== INITIALISATION ==========
+    document.addEventListener('DOMContentLoaded', function() {
+      // Traduction
+      changerLangue('fr');
+      document.getElementById('langue').addEventListener('change', function() {
+        changerLangue(this.value);
+      });
+      
+      // Gestion des boutons
+      document.querySelectorAll('.selection-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const filterType = this.dataset.filter;
+          
+          // Mettre à jour les boutons
+          document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(b => {
+            b.classList.remove('active');
+          });
+          this.classList.add('active');
+          
+          // Animation indicateur
+          const indicator = this.parentElement.querySelector('.active-indicator');
+          const isFirst = this === this.parentElement.firstElementChild;
+          indicator.style.left = isFirst ? '5px' : 'calc(50% + 2.5px)';
+          indicator.style.right = isFirst ? 'auto' : '5px';
+          
+          // Filtrer
+          filterOffers();
+        });
+      });
+      
+      // Afficher Fortnite + Montage par défaut
+      filterOffers();
+    });
   </script>
 </body>
 </html>

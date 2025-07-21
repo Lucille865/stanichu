@@ -7,68 +7,81 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Menu TOP centré -->
+  <!-- Header fixe -->
   <header class="main-header">
-    <div class="header-content">
-      <a href="index.html">Accueil</a>
-      <a href="offres.html" class="active">Nos Offres</a>
-      <a href="contact.html">Contact</a>
+    <div class="header-container">
+      <div class="logo">Stanichu</div>
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="offres.html" class="active">Nos Offres</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <select id="langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
     </div>
   </header>
 
-  <main class="main-content">
-    <!-- Sélecteurs -->
-    <div class="selectors">
-      <div class="game-selector">
-        <button class="selector-btn active" data-game="fortnite">Fortnite</button>
-        <button class="selector-btn" data-game="valorant">Valorant</button>
+  <main class="content">
+    <!-- Double sélecteur -->
+    <div class="selectors-container">
+      <div class="switcher">
+        <button class="switch-btn active" data-filter="game" value="fortnite">Fortnite</button>
+        <button class="switch-btn" data-filter="game" value="valorant">Valorant</button>
+        <div class="active-indicator"></div>
       </div>
-      <div class="type-selector">
-        <button class="selector-btn active" data-type="montage">Montage</button>
-        <button class="selector-btn" data-type="miniature">Miniature</button>
+      <div class="switcher">
+        <button class="switch-btn active" data-filter="type" value="montage">Montage</button>
+        <button class="switch-btn" data-filter="type" value="miniature">Miniature</button>
+        <div class="active-indicator"></div>
       </div>
     </div>
 
-    <!-- Offres (structure simplifiée) -->
-    <div class="offres-list">
-      <!-- Offre 1 -->
-      <div class="offre" data-game="fortnite" data-type="montage">
-        <h3>Pack Basique</h3>
-        <p>Montage 1 minute</p>
-        <p>5€</p>
-        <button>Commander</button>
+    <!-- Offres -->
+    <div class="offres-grid">
+      <!-- Exemple d'offre -->
+      <div class="offre-card" data-game="fortnite" data-type="montage">
+        <h3>Pack Fortnite Pro</h3>
+        <ul>
+          <li>Montage 3 minutes</li>
+          <li>Effets spéciaux</li>
+          <li>15€</li>
+        </ul>
+        <button class="buy-btn">Commander</button>
       </div>
       
-      <!-- Offre 2 -->
-      <div class="offre" data-game="valorant" data-type="montage" style="display:none">
-        <h3>Pack Valorant</h3>
-        <p>Montage compétitif</p>
-        <p>10€</p>
-        <button>Commander</button>
-      </div>
+      <!-- Ajoutez vos autres offres ici -->
     </div>
   </main>
 
   <script>
-    // Script basique de filtrage
-    document.querySelectorAll('.selector-btn').forEach(btn => {
+    // Gestion des sélecteurs
+    document.querySelectorAll('.switch-btn').forEach(btn => {
       btn.addEventListener('click', function() {
-        // Gestion active/inactive
-        const parent = this.parentElement;
-        parent.querySelectorAll('.selector-btn').forEach(b => b.classList.remove('active'));
+        const filterType = this.dataset.filter;
+        const container = this.parentElement;
+        
+        // Mise à jour UI
+        container.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         
+        // Animation indicateur
+        const indicator = container.querySelector('.active-indicator');
+        indicator.style.left = this === container.firstElementChild ? '5px' : 'calc(50% + 5px)';
+        
+        // Filtrage
         filterOffers();
       });
     });
 
     function filterOffers() {
-      const game = document.querySelector('.game-selector .active').dataset.game;
-      const type = document.querySelector('.type-selector .active').dataset.type;
+      const game = document.querySelector('[data-filter="game"].active').value;
+      const type = document.querySelector('[data-filter="type"].active').value;
       
-      document.querySelectorAll('.offre').forEach(offer => {
-        offer.style.display = 
-          (offer.dataset.game === game && offer.dataset.type === type) 
+      document.querySelectorAll('.offre-card').forEach(card => {
+        card.style.display = 
+          (card.dataset.game === game && card.dataset.type === type) 
             ? 'block' 
             : 'none';
       });

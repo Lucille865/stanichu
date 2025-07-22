@@ -66,39 +66,37 @@ body {
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline; /* Changement important */
+  align-items: flex-end; /* Alignement sur la ligne de base */
 }
 
 .page-intro h1 {
-  font-size: 3.5rem;
+  font-size: 4.5rem; /* Taille augmentée */
   font-weight: 800;
   color: white;
   margin: 0;
-  line-height: 1;
+  line-height: 0.9; /* Plus compact */
+  letter-spacing: -1px; /* Optionnel pour style moderne */
 }
 
 .order-cta {
   color: #6772e5;
-  font-size: 1.1rem;
+  font-size: 1.8rem; /* Même taille que "EXPLORE MY WORK" */
   font-weight: bold;
   text-decoration: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 8px 0; /* Ajustement du padding */
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
+  gap: 8px;
+  padding-bottom: 5px; /* Alignement vertical */
+  transition: opacity 0.3s;
 }
 
 .order-cta:hover {
   opacity: 0.8;
-  border-bottom-color: #6772e5;
 }
 
 .order-cta::after {
   content: "→";
-  display: inline-block;
-  margin-left: 5px;
+  font-size: 1.4rem;
 }
 
 /* ===== SELECTEURS DOUBLE ===== */

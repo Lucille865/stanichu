@@ -249,12 +249,6 @@ body {
   background: #6772e5;
 }
 
-.slider-arrow.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background: #2a2a2a !important;
-}
-
 .slider-arrow:disabled {
   opacity: 0.3;
   cursor: not-allowed;

@@ -115,27 +115,46 @@
       // Implémentez la logique de traduction ici
     });
 
-  document.addEventListener('DOMContentLoaded', function() {
-  // Initialisation des sliders
-  setupSlider('.videos-slider', '.video-card');
-  setupSlider('.reviews-slider', '.review-card');
-  
+// Fonction debounce pour le resize
+function debounce(func, wait) {
+  let timeout;
+  return function() {
+    const context = this, args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}
+
+// Fonction principale du slider
 function setupSlider(sliderSelector, itemSelector) {
   const slider = document.querySelector(sliderSelector);
+  if (!slider) return;
+
   const container = slider.parentElement;
-  const prev = container.closest('.section').querySelector('.prev-arrow');
-  const next = container.closest('.section').querySelector('.next-arrow');
+  const section = container.closest('.section');
+  if (!section) return;
+
+  const prev = section.querySelector('.prev-arrow');
+  const next = section.querySelector('.next-arrow');
+  if (!prev || !next) return;
+
   const items = slider.querySelectorAll(itemSelector);
-  const itemWidth = items[0].offsetWidth + 30; // Largeur d'un élément + marge
+  if (items.length === 0) return;
+
+  const itemWidth = items[0].offsetWidth + 30;
   let currentPosition = 0;
   let visibleItems = Math.floor(container.offsetWidth / itemWidth);
-  let totalMovements = items.length - visibleItems;
+  let totalMovements = Math.max(items.length - visibleItems, 0);
 
   function updateButtons() {
-    // Désactiver flèche gauche si on est au début
     prev.disabled = currentPosition >= 0;
-    // Désactiver flèche droite si on a tout vu
     next.disabled = currentPosition <= -(totalMovements * itemWidth);
+  }
+
+  function handleResize() {
+    visibleItems = Math.floor(container.offsetWidth / itemWidth);
+    totalMovements = Math.max(items.length - visibleItems, 0);
+    updateButtons();
   }
 
   next.addEventListener('click', () => {
@@ -154,17 +173,18 @@ function setupSlider(sliderSelector, itemSelector) {
     }
   });
 
+  // Debounce le resize pour meilleures performances
+  window.addEventListener('resize', debounce(handleResize, 100));
+
   // Initialisation
   updateButtons();
-  
-  // Réinitialiser au redimensionnement
-  window.addEventListener('resize', () => {
-    visibleItems = Math.floor(container.offsetWidth / itemWidth);
-    totalMovements = items.length - visibleItems;
-    updateButtons();
-  });
 }
-}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialisation des sliders
+  setupSlider('.videos-slider', '.video-card');
+  setupSlider('.reviews-slider', '.review-card');
+});
 
 // Modale Contact
 const contactBtn = document.querySelector('.contact-btn');

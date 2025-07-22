@@ -175,12 +175,6 @@ body {
   opacity: 0.8;
 }
 
-.view-all-btn::after {
-  content: "→";
-  position: absolute;
-  right: 0;
-}
-
 /* ===== GRID VIDÉOS ===== */
 
 .video-card iframe {

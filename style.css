@@ -242,12 +242,10 @@ body {
   height: 36px;
   border-radius: 50%;
   cursor: pointer;
-  display: grid;
-  place-items: center;
   transition: all 0.3s;
 }
 
-.slider-arrow:hover {
+.slider-arrow:hover:not(:disabled) {
   background: #6772e5;
 }
 
@@ -258,8 +256,9 @@ body {
 }
 
 .slider-arrow:disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: not-allowed;
+  background: #1e1e1e !important;
 }
 
 /* ===== ESPACEMENT ===== */

@@ -115,52 +115,75 @@
       // Implémentez la logique de traduction ici
     });
     
-document.addEventListener('DOMContentLoaded', function() {
-  // Configuration commune
+
   function setupSlider(sliderSelector, itemSelector) {
-    const slider = document.querySelector(sliderSelector);
-    const container = slider.parentElement;
-    const prev = container.closest('.section').querySelector('.prev-arrow');
-    const next = container.closest('.section').querySelector('.next-arrow');
-    const items = slider.querySelectorAll(itemSelector);
-    const itemWidth = items[0].offsetWidth + 30; // Largeur + gap
-    let currentPosition = 0;
-    const maxPosition = -((items.length - 1) * itemWidth); // Modification ici
-
-    function updateSlider() {
-      slider.style.transform = `translateX(${currentPosition}px)`;
-      prev.disabled = currentPosition >= 0;
-      next.disabled = currentPosition <= maxPosition;
-    }
-
-    next.addEventListener('click', () => {
-      if (currentPosition > maxPosition) {
-        currentPosition -= itemWidth; // Défile d'un seul élément
-        updateSlider();
-      }
-    });
-
-    prev.addEventListener('click', () => {
-      if (currentPosition < 0) {
-        currentPosition += itemWidth; // Défile d'un seul élément
-        updateSlider();
-      }
-    });
-
-    // Gestion du redimensionnement
-    window.addEventListener('resize', () => {
-      const newItemWidth = items[0].offsetWidth + 30;
-      currentPosition = currentPosition * (newItemWidth / itemWidth);
-      updateSlider();
-    });
-
-    updateSlider();
+  const slider = document.querySelector(sliderSelector);
+  const container = slider.parentElement;
+  const prev = container.closest('.section').querySelector('.prev-arrow');
+  const next = container.closest('.section').querySelector('.next-arrow');
+  const items = slider.querySelectorAll(itemSelector);
+  
+  // Calculer la largeur visible du conteneur
+  const containerWidth = container.offsetWidth;
+  // Largeur totale du contenu
+  const totalContentWidth = slider.scrollWidth;
+  // Position actuelle
+  let currentPosition = 0;
+  
+  function updateButtons() {
+    // Désactiver flèche gauche si on est au début
+    prev.disabled = currentPosition >= 0;
+    // Désactiver flèche droite si on a atteint la fin
+    next.disabled = currentPosition <= -(totalContentWidth - containerWidth);
+    
+    // Style pour les boutons désactivés
+    if (prev.disabled) prev.classList.add('disabled');
+    else prev.classList.remove('disabled');
+    
+    if (next.disabled) next.classList.add('disabled');
+    else next.classList.remove('disabled');
   }
 
-  // Initialisation des sliders
-  setupSlider('.videos-slider', '.video-card');
-  setupSlider('.reviews-slider', '.review-card');
-});
+  next.addEventListener('click', () => {
+    // Calculer le déplacement possible
+    const remainingSpace = totalContentWidth - containerWidth + currentPosition;
+    const moveBy = Math.min(remainingSpace, containerWidth * 0.8);
+    
+    if (moveBy > 0) {
+      currentPosition -= moveBy;
+      slider.style.transform = `translateX(${currentPosition}px)`;
+      updateButtons();
+    }
+  });
+
+  prev.addEventListener('click', () => {
+    // Calculer le déplacement possible
+    const moveBy = Math.min(-currentPosition, containerWidth * 0.8);
+    
+    if (moveBy > 0) {
+      currentPosition += moveBy;
+      slider.style.transform = `translateX(${currentPosition}px)`;
+      updateButtons();
+    }
+  });
+
+    // Gestion du redimensionnement
+  window.addEventListener('resize', () => {
+    // Recalculer les dimensions
+    const newContainerWidth = container.offsetWidth;
+    const newTotalWidth = slider.scrollWidth;
+    
+    // Ajuster la position si nécessaire
+    if (currentPosition < -(newTotalWidth - newContainerWidth)) {
+      currentPosition = -(newTotalWidth - newContainerWidth);
+      slider.style.transform = `translateX(${currentPosition}px)`;
+    }    
+    updateButtons();
+  });
+  
+  // Initialisation
+  updateButtons();
+}
 
 // Modale Contact
 const contactBtn = document.querySelector('.contact-btn');

@@ -171,14 +171,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const convertedPrice = originalPrice * taux[devise].rate;
         element.textContent = `${taux[devise].symbol}${convertedPrice.toFixed(2)}`;
         
-        // Mise à jour pour les boutons "Commander"
-        const buyBtn = element.closest('.offre').querySelector('.buy-btn');
-        const baseText = buyBtn.textContent.trim().replace(/[\d.,]+\€|\$|£/g, '').trim();
-        buyBtn.textContent = `${baseText} - ${taux[devise].symbol}${convertedPrice.toFixed(2)}`;
+        // Animation visuelle
+        element.classList.add('changing');
+        setTimeout(() => element.classList.remove('changing'), 300);
       });
     });
     
-    // Déclencheur initial pour afficher la devise par défaut
+    // Initialisation
     deviseSelector.dispatchEvent(new Event('change'));
   }
 });

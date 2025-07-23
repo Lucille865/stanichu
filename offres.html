@@ -152,6 +152,28 @@
         });
       });
     });
+
+    document.getElementById('devise').addEventListener('change', function() {
+  const devise = this.value;
+  // Exemple : Met à jour tous les prix sur la page
+  document.querySelectorAll('.price').forEach(element => {
+    const originalPrice = parseFloat(element.dataset.originalPrice);
+    let convertedPrice;
+    
+    switch(devise) {
+      case 'usd': 
+        convertedPrice = originalPrice * 1.07; // Taux USD
+        element.textContent = `$${convertedPrice.toFixed(2)}`;
+        break;
+      case 'gbp':
+        convertedPrice = originalPrice * 0.85; // Taux GBP
+        element.textContent = `£${convertedPrice.toFixed(2)}`;
+        break;
+      default:
+        element.textContent = `${originalPrice.toFixed(2)}€`;
+    }
+  });
+});
   </script>
 </body>
 </html>

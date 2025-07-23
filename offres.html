@@ -153,26 +153,34 @@
       });
     });
 
-    document.getElementById('devise').addEventListener('change', function() {
-  const devise = this.value;
-  // Exemple : Met à jour tous les prix sur la page
-  document.querySelectorAll('.price').forEach(element => {
-    const originalPrice = parseFloat(element.dataset.originalPrice);
-    let convertedPrice;
+// CONVERSION DE DEVISES
+document.addEventListener('DOMContentLoaded', function() {
+  const deviseSelector = document.getElementById('devise');
+  
+  if (deviseSelector) {
+    deviseSelector.addEventListener('change', function() {
+      const devise = this.value;
+      const taux = {
+        eur: { symbol: '€', rate: 1 },
+        usd: { symbol: '$', rate: 1.07 },
+        gbp: { symbol: '£', rate: 0.85 }
+      };
+      
+      document.querySelectorAll('.price').forEach(element => {
+        const originalPrice = parseFloat(element.dataset.originalPrice);
+        const convertedPrice = originalPrice * taux[devise].rate;
+        element.textContent = `${taux[devise].symbol}${convertedPrice.toFixed(2)}`;
+        
+        // Mise à jour pour les boutons "Commander"
+        const buyBtn = element.closest('.offre').querySelector('.buy-btn');
+        const baseText = buyBtn.textContent.trim().replace(/[\d.,]+\€|\$|£/g, '').trim();
+        buyBtn.textContent = `${baseText} - ${taux[devise].symbol}${convertedPrice.toFixed(2)}`;
+      });
+    });
     
-    switch(devise) {
-      case 'usd': 
-        convertedPrice = originalPrice * 1.07; // Taux USD
-        element.textContent = `$${convertedPrice.toFixed(2)}`;
-        break;
-      case 'gbp':
-        convertedPrice = originalPrice * 0.85; // Taux GBP
-        element.textContent = `£${convertedPrice.toFixed(2)}`;
-        break;
-      default:
-        element.textContent = `${originalPrice.toFixed(2)}€`;
-    }
-  });
+    // Déclencheur initial pour afficher la devise par défaut
+    deviseSelector.dispatchEvent(new Event('change'));
+  }
 });
   </script>
 </body>

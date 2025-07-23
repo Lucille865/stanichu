@@ -9,19 +9,30 @@
 <body>
 <header class="main-header">
   <div class="header-content">
-    <div class="logo">Stanichu</div>
+    <div class="logo">STANICHU</div>
     
-    <!-- Ajoutez cette div autour de votre nav -->
     <div class="nav-center">
-      <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
-      <a href="offres.html" class="active" data-fr="Services" data-en="Services">Services</a>
-      <a href="portfolio.html" data-fr="Portfolio" data-en="Portfolio">Portfolio</a>
+      <a href="index.html" data-fr = "Accueil" data-en = "Home">Accueil</a>
+      <a href="offres.html" class="active">Services</a>
+      <a href="portfolio.html">Portfolio</a>
     </div>
     
-    <select id="langue">
-      <option value="fr">FR</option>
-      <option value="en">EN</option>
-    </select>
+    <div class="header-right">
+      <!-- Nouveau sélecteur de devise -->
+      <select id="devise" class="currency-selector">
+        <option value="eur">€ EUR</option>
+        <option value="usd">$ USD</option>
+        <option value="gbp">£ GBP</option>
+      </select>
+      
+      <!-- Sélecteur de langue existant -->
+      <select id="langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
+      
+      <button class="contact-btn">Contact Me</button>
+    </div>
   </div>
 </header>
 

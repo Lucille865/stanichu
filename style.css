@@ -115,7 +115,8 @@ body {
 /* Animation lors du changement */
 .price.changing {
   transform: scale(1.05);
-  opacity: 0.7;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
 .order-cta {

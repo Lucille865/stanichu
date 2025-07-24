@@ -444,6 +444,10 @@ body {
     width: 100%;
     margin-bottom: 8px;
   }
+  #langue:focus, #devise:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(103, 114, 229, 0.3);
+  }  
   .page-intro {
     flex-direction: column;
     gap: 20px;

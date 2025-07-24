@@ -230,7 +230,7 @@ body {
 /* ===== SECTIONS ===== */
 .section {
   max-width: 1200px;
-  margin: 0 auto 80px; /* Espace augmenté en bas */
+  margin: 80px auto; /* Espace augmenté en haut ? */
   padding: 0 40px;
 }
 

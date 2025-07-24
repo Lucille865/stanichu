@@ -105,6 +105,33 @@
         <button class="buy-btn" data-fr="Commander" data-en="Order Now">Commander</button>
       </div>
     </div>
+
+  <!-- Après la section des offres -->
+<section class="section" style="margin-top: 80px;">
+  <div class="section-header">
+    <h2 class="section-title">ALL REVIEWS</h2>
+    <span class="review-count">128 reviews</span>
+  </div>
+
+  <div class="reviews-grid">
+    <!-- Avis 1 -->
+    <div class="review-card large">
+      <div class="stars">★★★★★</div>
+      <h3>Marie K.</h3>
+      <p>"Stanichu transformed my gameplay clips into an epic montage! The synchronization with the music was perfect."</p>
+    </div>
+
+    <!-- Avis 2 (plus court) -->
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <h3>Alex T.</h3>
+      <p>"Fast delivery, great quality!"</p>
+    </div>
+
+    <!-- 6 autres avis avec différentes classes 'small', 'medium', 'large' -->
+    ...
+  </div>
+</section>
   </main>
 
   <script>
@@ -181,6 +208,13 @@ document.addEventListener('DOMContentLoaded', function() {
     deviseSelector.dispatchEvent(new Event('change'));
   }
 });
+
+  fetch('/api/reviews/count')
+  .then(response => response.json())
+  .then(data => {
+    document.querySelector('.review-count').textContent = `${data.count} reviews`;
+  });
+    
   </script>
 </body>
 </html>

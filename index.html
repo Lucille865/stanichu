@@ -118,53 +118,60 @@
       </div>
     </section>
 
-    <!-- Section FAQ -->
-<section class="section">
+<!-- Section FAQ -->
+<section class="section" style="margin-top: 80px;">
   <div class="section-header">
     <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
   </div>
-  
-  <div class="faq-grid">
-    <!-- Question 1 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>How long does editing take?</h3>
-        <span class="faq-toggle">↓</span>
+
+  <div class="faq-container">
+    <!-- Ligne 1 -->
+    <div class="faq-row">
+      <!-- Question 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How long does editing take?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          <p>Standard edits take 2-3 business days. Rush delivery available.</p>
+        </div>
       </div>
-      <div class="faq-answer">
-        <p>Standard edits take 2-3 business days. Rush delivery is available for 24h service (+50% fee).</p>
-      </div>
-    </div>
-    
-    <!-- Question 2 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>What files do you need from me?</h3>
-        <span class="faq-toggle">↓</span>
-      </div>
-      <div class="faq-answer">
-        <p>Please send raw footage (MP4/MOV), music files (MP3/WAV), and any specific instructions.</p>
-      </div>
-    </div>
-    
-    <!-- Question 3 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>What files do you need from me?</h3>
-        <span class="faq-toggle">↓</span>
-      </div>
-      <div class="faq-answer">
-        <p>Please send raw footage (MP4/MOV), music files (MP3/WAV), and any specific instructions.</p>
+
+      <!-- Question 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What files do you need?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          <p>Raw footage (MP4/MOV), music files (MP3/WAV), and instructions.</p>
+        </div>
       </div>
     </div>
-    <!-- Question 4 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>What files do you need from me?</h3>
-        <span class="faq-toggle">↓</span>
+
+    <!-- Ligne 2 -->
+    <div class="faq-row">
+      <!-- Question 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Do you do revisions?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          <p>Yes, 2 free revisions included with every order.</p>
+        </div>
       </div>
-      <div class="faq-answer">
-        <p>Please send raw footage (MP4/MOV), music files (MP3/WAV), and any specific instructions.</p>
+
+      <!-- Question 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Payment methods?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          <p>We accept PayPal, credit cards, and crypto payments.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -280,15 +287,30 @@ contactModal.addEventListener('click', (e) => {
   }
 });
 
+// FAQ Functionality
 document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
+  question.addEventListener('click', (e) => {
     const item = question.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const arrow = item.querySelector('.faq-arrow');
+    
+    // Toggle current item
     item.classList.toggle('active');
     
-    // Ferme les autres FAQs
+    // Fermer les autres réponses
     document.querySelectorAll('.faq-item').forEach(otherItem => {
-      if (otherItem !== item) otherItem.classList.remove('active');
+      if (otherItem !== item) {
+        otherItem.classList.remove('active');
+        otherItem.querySelector('.faq-answer').style.display = 'none';
+      }
     });
+    
+    // Gérer l'affichage de la réponse
+    if (item.classList.contains('active')) {
+      answer.style.display = 'block';
+    } else {
+      answer.style.display = 'none';
+    }
   });
 });
     

@@ -410,15 +410,20 @@ body {
   text-decoration: underline;
 }
 
-/* Style FAQ */
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/* FAQ Section */
+.faq-container {
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.faq-row {
+  display: flex;
   gap: 30px;
-  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 .faq-item {
+  flex: 1;
   background: #1e1e1e;
   border-radius: 8px;
   padding: 20px;
@@ -433,36 +438,27 @@ body {
 }
 
 .faq-question h3 {
-  color: #6772e5;
+  color: white;
   font-size: 1.2rem;
   margin: 0;
+  font-weight: 500;
 }
 
-.faq-toggle {
-  font-size: 1.5rem;
+.faq-arrow {
+  font-size: 1.3rem;
   transition: transform 0.3s;
+  margin-left: 15px;
 }
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  padding-top: 0;
-}
-
-.faq-answer p {
-  margin-top: 15px;
-  color: #ccc;
-}
-
-/* État ouvert */
-.faq-item.active .faq-toggle {
-  transform: rotate(180deg);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 200px;
   padding-top: 15px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Animation */
+.faq-item.active .faq-arrow {
+  transform: rotate(180deg);
 }
 
 .faq-item:hover {
@@ -534,7 +530,8 @@ body {
     width: 100%;
     justify-content: space-between;
   }
-  .faq-grid {
-    grid-template-columns: 1fr;
+  .faq-row {
+    flex-direction: column;
+    gap: 15px;
   }
 }

@@ -90,18 +90,27 @@ body {
   align-self: center; /* Centre verticalement */
 }
 
-.currency-selector {
+/* Style unifié pour les deux sélecteurs */
+#langue, #devise {
   background: #1e1e1e;
   color: white;
   border: 1px solid #333;
-  border-radius: 4px;
-  padding: 6px 10px;
-  margin-right: 10px;
+  border-radius: 20px;
+  padding: 6px 12px;
   cursor: pointer;
+  font-size: 0.9rem;
   transition: all 0.3s;
+  appearance: none; /* Supprime le style par défaut du navigateur */
+  -webkit-appearance: none;
+  margin-right: 10px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 30px;
 }
 
-.currency-selector:hover {
+#langue:hover, #devise:hover {
   border-color: #6772e5;
 }
 
@@ -431,8 +440,9 @@ body {
     justify-content: flex-end;
   }
   
-  .currency-selector, #langue {
-    margin-bottom: 10px;
+  #langue, #devise {
+    width: 100%;
+    margin-bottom: 8px;
   }
   .page-intro {
     flex-direction: column;

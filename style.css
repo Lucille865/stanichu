@@ -434,7 +434,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
+  cursor: default; /* Curseur normal par défaut */
 }
 
 .faq-question h3 {
@@ -445,9 +445,10 @@ body {
 }
 
 .faq-arrow {
-  font-size: 1.3rem;
-  transition: transform 0.3s;
+  cursor: pointer; /* Curseur pointer seulement sur la flèche */
   margin-left: 15px;
+  transition: transform 0.3s;
+  user-select: none; /* Empêche la sélection du texte */
 }
 
 .faq-answer {

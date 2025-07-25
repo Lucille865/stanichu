@@ -133,6 +133,66 @@
     ...
   </div>
 </section>
+
+<!-- Section FAQ -->
+<section class="section" style="margin-top: 80px;">
+  <div class="section-header">
+    <h2 class="section-title">FAQ - OFFRES</h2>
+  </div>
+
+  <div class="faq-grid">
+    <!-- Colonne Gauche -->
+    <div class="faq-column">
+      <!-- Question 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Comment choisir entre les packs ?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer">
+          <p>Le Pack Basique convient pour des montages simples, tandis que le Pack Avancé offre des effets spéciaux. Consultez nos exemples dans le portfolio.</p>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Paiement sécurisé ?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer">
+          <p>Oui, nous acceptons PayPal et les cartes bancaires via Stripe. Aucune information bancaire n'est stockée sur nos serveurs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colonne Droite -->
+    <div class="faq-column">
+      <!-- Question 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Délai de livraison ?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer">
+          <p>48h pour le Pack Basique, 72h pour le Pack Avancé. Service express disponible (+30% du prix).</p>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Modifications incluses ?</h3>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer">
+          <p>2 retours gratuits sont inclus avec chaque commande. Au-delà, des frais supplémentaires s'appliquent (10€/modification).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>   
+    
   </main>
 
   <script>
@@ -215,6 +275,14 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(data => {
     document.querySelector('.review-count').textContent = `${data.count} reviews`;
   });
+
+//FAQ
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    item.classList.toggle('active');
+  });
+});
     
   </script>
 </body>

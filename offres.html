@@ -110,7 +110,7 @@
 <section class="section" style="margin-top: 80px;">
   <div class="section-header">
     <h2 class="section-title">ALL REVIEWS</h2>
-    <span class="review-count">128 reviews</span>
+    <span class="review-count"></span>
   </div>
 
   <div class="reviews-grid">
@@ -270,11 +270,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-  fetch('/api/reviews/count')
-  .then(response => response.json())
-  .then(data => {
-    document.querySelector('.review-count').textContent = `${data.count} reviews`;
-  });
+//NB REVIEWS
+document.addEventListener('DOMContentLoaded', function() {
+  // Compter le nombre réel d'avis affichés
+  const reviewCount = document.querySelectorAll('.review-card').length;
+  document.querySelector('.review-count').textContent = `${reviewCount} reviews`;
+});
 
 //FAQ
 document.querySelectorAll('.faq-question').forEach(question => {

@@ -447,14 +447,23 @@ body {
 .faq-arrow {
   cursor: pointer; /* Curseur pointer seulement sur la flèche */
   margin-left: 15px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
+  display: inline-block;
   user-select: none; /* Empêche la sélection du texte */
 }
 
 .faq-answer {
-  padding-top: 15px;
   color: #ccc;
   line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 20px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; /* Valeur suffisamment grande */
+  padding: 15px 20px;
 }
 
 /* Animation */

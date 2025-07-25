@@ -290,26 +290,23 @@ contactModal.addEventListener('click', (e) => {
 // FAQ Functionality
 document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', (e) => {
+    // On ne traite que les clics sur la flèche
+    if (!e.target.classList.contains('faq-arrow')) return;
+    
     const item = question.parentElement;
     const answer = item.querySelector('.faq-answer');
     const arrow = item.querySelector('.faq-arrow');
     
-    // Toggle current item
+    // Basculer seulement l'élément cliqué
     item.classList.toggle('active');
     
-    // Fermer les autres réponses
-    document.querySelectorAll('.faq-item').forEach(otherItem => {
-      if (otherItem !== item) {
-        otherItem.classList.remove('active');
-        otherItem.querySelector('.faq-answer').style.display = 'none';
-      }
-    });
-    
-    // Gérer l'affichage de la réponse
+    // Gérer l'affichage
     if (item.classList.contains('active')) {
       answer.style.display = 'block';
+      arrow.textContent = '↑'; // Flèche vers le haut
     } else {
       answer.style.display = 'none';
+      arrow.textContent = '↓'; // Flèche vers le bas
     }
   });
 });

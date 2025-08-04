@@ -584,11 +584,18 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 0 !important; /* Supprime l'espace du fixed */
+  }
+  .main-header {
+    position: relative; /* Annule le fixed */
+    background: #111;
+  }
   .header-content {
     flex-direction: column;
     text-align: center;
     height: auto;
-    padding: 15px 20px;
+    padding: 15px;
   }
   .nav-center {
     position: static;
@@ -596,6 +603,7 @@ body {
     justify-content: center;
     width: 100%;
     margin-top: 15px;
+    order: 2;
   }
   .logo {
     font-family: 'Manrope', sans-serif;
@@ -606,6 +614,10 @@ body {
   .header-right {
     flex-wrap: wrap;
     justify-content: flex-end;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
   }
   
   #langue, #devise {

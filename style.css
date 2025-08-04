@@ -68,7 +68,7 @@ body {
 }
 
 .header-content a.active {
-  color: #6772e5;
+  color: #3A3A3A;
   font-weight: 600;
 }
 
@@ -113,13 +113,13 @@ body {
 }
 
 #langue:hover, #devise:hover {
-  border-color: #6772e5;
+  border-color: #2A2A2A;
 }
 
 /* Style pour les prix convertis */
 .price {
   font-weight: bold;
-  color: #6772e5;
+  color: #F7F7F8;
   transition: all 0.3s;
 }
 
@@ -197,7 +197,7 @@ body {
   bottom: 0;
   height: 3px;
   width: 50%;
-  background: #6772e5;
+  background: #2A2A2A;
   transition: left 0.3s ease;
   z-index: 1;
 }
@@ -219,7 +219,7 @@ body {
 
 .buy-btn {
   font-family: 'Manrope', sans-serif;
-  background: #6772e5;
+  background: #2A2A2A;
   color: #F7F7F8
   border: none;
   padding: 10px 20px;
@@ -262,7 +262,7 @@ body {
 }
 
 .view-all-btn:hover {
-  color: #6772e5
+  color: #3A3A3A;
   opacity: 0.8;
 }
 
@@ -337,7 +337,7 @@ body {
 }
 
 .slider-arrow:hover:not(:disabled) {
-  background: #6772e5;
+  background: #3A3A3A;
 }
 
 .slider-arrow:disabled {
@@ -357,7 +357,7 @@ body {
 .contact-btn {
   order: 1; /* S'assure qu'il est à droite */
   font-family: 'Manrope', sans-serif;
-  background: #6772e5;
+  background: #2A2A2A;
   color: white;
   border: none;
   padding: 8px 20px;
@@ -368,7 +368,7 @@ body {
 }
 
 .contact-btn:hover {
-  background: #5469d4;
+  background: #3A3A3A;
   transform: translateY(-2px);
 }
 
@@ -406,7 +406,7 @@ body {
 
 .contact-link {
   display: block;
-  color: #6772e5;
+  color: #3A3A3A;
   margin: 20px 0;
   font-size: 1.2rem;
   text-decoration: none;
@@ -438,6 +438,8 @@ body {
 .faq-question {
   padding: 15px 20px;
   display: flex;
+  font-size: 1.1rem; /* Taille réduite */
+  font-weight: 400; /* Enlève le gras */
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
@@ -447,6 +449,9 @@ body {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
+  color: #B0B0B0; /* Gris moyen */
+  font-size: 0.95rem;
+  line-height: 1.5;
   transition: max-height 0.3s ease;
   padding: 0 20px;
 }
@@ -467,7 +472,7 @@ body {
 
 /* Style du compteur */
 .review-count {
-  color: #6772e5;
+  color: #F7F7F8;
   font-weight: bold;
   font-size: 1.1rem;
 }
@@ -506,7 +511,7 @@ body {
 }
 
 .review-card h3 {
-  color: #6772e5;
+  color: #F7F7F8
   margin-bottom: 10px;
 }
 
@@ -546,11 +551,19 @@ body {
 .portfolio-info {
   padding: 15px 20px;
   color: #F7F7F8;
+  background: #1A1A1A;
 }
 
 .portfolio-info h3 {
-  color: #6772e5;
+  color: #F7F7F8
+  font-size: 1.1rem;
   margin-bottom: 5px;
+}
+
+.portfolio-info p {
+  color: #B0B0B0; /* Gris moyen */
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 

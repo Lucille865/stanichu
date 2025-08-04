@@ -37,6 +37,16 @@
 </header>
 
   <main>
+
+  <div class="contact-modal">
+  <div class="contact-modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Contactez-moi</h3>
+    <a href="mailto:contact@stanichu.com" class="contact-link">stanichu.pro@gmail.com</a>
+    <a href="https://youtube.com/stanichu" class="contact-link">YouTube.com/Stanichu</a>
+  </div>
+  </div>
+    
     <div class="switchers">
       <div class="game-switcher">
         <button class="switcher-btn active" data-game="fortnite" data-fr="Fortnite" data-en="Fortnite">Fortnite</button>
@@ -204,6 +214,23 @@
         }
       });
     }
+
+const contactBtn = document.querySelector('.contact-btn');
+const contactModal = document.querySelector('.contact-modal');
+
+contactBtn.addEventListener('click', () => {
+  contactModal.style.display = 'flex';
+});
+
+document.querySelector('.close-modal').addEventListener('click', () => {
+  contactModal.style.display = 'none';
+});
+
+contactModal.addEventListener('click', (e) => {
+  if (e.target === contactModal) {
+    contactModal.style.display = 'none';
+  }
+});
 
     // Filtrage des offres
     function filterOffers() {

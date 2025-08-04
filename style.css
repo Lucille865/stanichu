@@ -225,7 +225,7 @@ body {
 .buy-btn {
   font-family: 'Manrope', sans-serif;
   background: #2A2A2A;
-  color: #F7F7F8
+  color: #F7F7F8;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -233,6 +233,9 @@ body {
   cursor: pointer;
   display: block;
   width: 100%;
+}
+.buy-btn:hover {
+  background: #3A3A3A; /* Gris légèrement plus clair au survol */
 }
 
 /* ===== SECTIONS ===== */
@@ -411,13 +414,14 @@ body {
 
 .contact-link {
   display: block;
-  color: #3A3A3A;
+  color: #F7F7F8;
   margin: 20px 0;
   font-size: 1.2rem;
   text-decoration: none;
 }
 
 .contact-link:hover {
+  opacity: 0.8;
   text-decoration: underline;
 }
 

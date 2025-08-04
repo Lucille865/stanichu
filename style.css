@@ -438,8 +438,8 @@ body {
 .faq-question {
   padding: 15px 20px;
   display: flex;
-  font-size: 1.1rem; /* Taille réduite */
-  font-weight: 400; /* Enlève le gras */
+  font-size: 1rem;
+  font-weight: 350;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
@@ -450,7 +450,7 @@ body {
   max-height: 0;
   overflow: hidden;
   color: #B0B0B0; /* Gris moyen */
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   transition: max-height 0.3s ease;
   padding: 0 20px;

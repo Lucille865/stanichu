@@ -6,9 +6,9 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Manrope', Arial, sans-serif;
   background-color: #0f0f0f;
-  color: white;
+  color: #E0E0E0;
   line-height: 1.6;
   padding-top: 70px; /* Espace pour le menu fixe */
 }
@@ -41,6 +41,7 @@ body {
 
 /* Navigation CENTRÉE */
 .nav-center {
+  font-family: 'Manrope', sans-serif;
   display: flex;
   gap: 25px;
   position: absolute;
@@ -83,8 +84,9 @@ body {
 
 .page-intro h1 {
   font-size: 3.8rem;
+  font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  color: white;
+  color: #F7F7F8;
   margin: 0;
   line-height: 0.9;
   align-self: center; /* Centre verticalement */
@@ -216,6 +218,7 @@ body {
 }
 
 .buy-btn {
+  font-family: 'Manrope', sans-serif;
   background: #6772e5;
   color: white;
   border: none;
@@ -244,8 +247,9 @@ body {
 
 .section-title {
   margin: 0; /* Supprime la marge par défaut */
+  font-family: 'Manrope', sans-serif;
   font-size: 1.8rem;
-  color: #6772e5;
+  color: #F7F7F8;
   text-align: left; /* Alignement à gauche */
 }
 
@@ -351,6 +355,7 @@ body {
 /* Bouton Contact */
 .contact-btn {
   order: 1; /* S'assure qu'il est à droite */
+  font-family: 'Manrope', sans-serif;
   background: #6772e5;
   color: white;
   border: none;
@@ -435,6 +440,7 @@ body {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  color: #F7F7F8;
 }
 
 .faq-answer {
@@ -478,6 +484,7 @@ body {
   border-radius: 10px;
   padding: 20px;
   transition: transform 0.3s;
+  color: #F7F7F8;
   /* Supprimez les classes small/medium/large pour l'instant */
 }
 
@@ -536,6 +543,7 @@ body {
 
 .portfolio-info {
   padding: 15px 20px;
+  color: #F7F7F8;
 }
 
 .portfolio-info h3 {
@@ -566,8 +574,10 @@ body {
     margin-top: 15px;
   }
   .logo {
+    font-family: 'Manrope', sans-serif;
     margin-right: 0;
     margin-bottom: 15px;
+    color: #F7F7F8;
   }
   .header-right {
     flex-wrap: wrap;

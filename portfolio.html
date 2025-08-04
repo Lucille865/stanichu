@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Stanichu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header identique aux autres pages -->
+  <header class="main-header">
+    <div class="header-content">
+      <div class="logo">Stanichu</div>
+      <div class="nav-center">
+        <a href="index.html">Accueil</a>
+        <a href="offres.html">Services</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+      </div>
+      <div class="header-right">
+        <select id="devise">
+          <option value="eur">€ EUR</option>
+          <option value="usd">$ USD</option>
+          <option value="gbp">£ GBP</option>
+        </select>
+        <select id="langue">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+        </select>
+        <button class="contact-btn">Contact Me</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section Portfolio -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">MY BEST WORKS</h2>
+        <div class="controls">
+          <div class="slider-nav">
+            <button class="slider-arrow prev-arrow">←</button>
+            <button class="slider-arrow next-arrow">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Exemple d'élément portfolio -->
+        <div class="portfolio-item">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="portfolio-info">
+            <h3>Montage Fortnite</h3>
+            <p>Edit cinématique avec effets spéciaux</p>
+          </div>
+        </div>
+        <!-- Ajoutez d'autres éléments ici -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (optionnel) -->
+  <footer>
+    <!-- ... -->
+  </footer>
+
+  <!-- Modale Contact (identique aux autres pages) -->
+  <div class="contact-modal">
+    <!-- ... -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

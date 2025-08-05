@@ -532,7 +532,6 @@ body {
 }
 
 .portfolio-item {
-  background: #1e1e1e;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s;

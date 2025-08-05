@@ -276,7 +276,7 @@ body {
 
 /* ===== GRID VIDÉOS ===== */
 
-.video-card iframe {
+.video-card {
   width: 100%;
   height: 100%;
 }

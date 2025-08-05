@@ -280,6 +280,8 @@ body {
   min-width: calc(33.33% - 20px) !important; /* Force la largeur */
   aspect-ratio: 16/9 !important; /* Conserve le ratio vidéo */
   flex-shrink: 0 !important; /* Empêche le rétrécissement */
+  flex: 0 0 auto; /* Désable le flex-grow */
+  position: relative;
 }
 
 /* ===== GRID AVIS ===== */
@@ -306,6 +308,10 @@ body {
   gap: 30px;
   transition: transform 0.5s ease;
   margin-bottom: 60px;
+  flex-wrap: nowrap; /* Empêche le retour à la ligne */
+  overflow-x: auto; /* Permet le défilement horizontal */
+  padding: 10px 0; /* Espace pour le scroll */
+  -webkit-overflow-scrolling: touch; /* Smooth scroll sur mobile */
 }
 .reviews-slider {
   display: flex;
@@ -544,6 +550,7 @@ body {
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   margin-bottom: 8px; /* Espace entre vidéo et légende */
+  overflow: hidden;
 }
 
 .video-container iframe {
@@ -552,10 +559,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
 }
 
 .video-caption {
   padding: 0 5px; /* Réduire le padding */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
 .video-title {

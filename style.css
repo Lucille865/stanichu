@@ -312,12 +312,6 @@ body {
   transition: transform 0.5s ease;
 }
 
-.video-card {
-  min-width: calc(33.33% - 20px);
-  aspect-ratio: 16/9;
-  flex-shrink: 0;
-}
-
 .review-card {
   min-width: calc(33.33% - 20px);
   flex-shrink: 0;

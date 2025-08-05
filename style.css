@@ -296,7 +296,7 @@ body {
 
 /* ===== SLIDER/CARROUSEL ===== */
 .slider-container {
-  overflow-x: auto; /* Permet le défilement horizontal */
+  overflow: hidden;
   padding: 20px 0;
   margin: 0 -40px; /* Compense le padding parent */
 }
@@ -561,13 +561,14 @@ body {
 }
 
 .video-caption {
-  padding: 12px 0 0;
+  padding: 8px 0 0 2px;
+  margin-top: -5px; /* Remonte vers la vidéo */
 }
 
 .video-title {
   color: #F7F7F8
-  font-size: 0.95rem !important;
-  margin: 0 0 2px 0 !important; /* Espacement serré */
+  font-size: 0.9rem;
+  margin: 0 0 2px 0; /* Espacement serré */
   font-weight: 500;
 }
 

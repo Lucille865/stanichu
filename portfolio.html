@@ -68,17 +68,44 @@
     <!-- ... -->
   </footer>
 
-  <!-- Modale Contact (identique aux autres pages) -->
-  <div class="contact-modal">
-    <!-- ... -->
-  </div>
-
-  <script src="script.js">
+<script>
     
   document.querySelectorAll('.portfolio-item').forEach((item, index) => {
   item.style.transitionDelay = `${index * 0.1}s`;
   });
-  </script>
-  
+
+// Modale Contact
+const contactBtn = document.querySelector('.contact-btn');
+const contactModal = document.createElement('div');
+contactModal.className = 'contact-modal';
+
+contactModal.innerHTML = `
+  <div class="contact-modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Contactez-moi</h3>
+    <a href="mailto:contact@stanichu.com" class="contact-link">stanichu.pro@gmail.com</a>
+    <a href="https://www.youtube.com/@stanichu_" target="_blank" class="contact-link">
+      YouTube.com/Stanichu
+    </a>
+  </div>
+`;
+
+document.body.appendChild(contactModal);
+
+contactBtn.addEventListener('click', () => {
+  contactModal.style.display = 'flex';
+});
+
+document.querySelector('.close-modal').addEventListener('click', () => {
+  contactModal.style.display = 'none';
+});
+
+contactModal.addEventListener('click', (e) => {
+  if (e.target === contactModal) {
+    contactModal.style.display = 'none';
+  }
+});
+    
+</script>
 </body>
 </html>

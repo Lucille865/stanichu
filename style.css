@@ -565,11 +565,10 @@ body {
 .portfolio-info h3 {
   color: #F7F7F8
   font-size: 1.1rem;
-  margin: 10px 0 5px;
+  margin: 5px 0 5px;
 }
 
 .portfolio-info p {
-  color: #B0B0B0; /* Gris moyen */
   font-size: 0.9rem;
 }
 
